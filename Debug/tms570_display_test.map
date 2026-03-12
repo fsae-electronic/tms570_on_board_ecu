@@ -1,0 +1,1266 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Thu Mar 12 18:19:08 2026
+
+OUTPUT FILE NAME:   <tms570_display_test.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000cf70
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  VECTORS               00000000   00000020  00000020  00000000     X
+  FLASH0                00000020   0013ffe0  0000ef22  001310be  R  X
+  STACKS                08000000   00001500  00000000  00001500  RW  
+  RAM                   08001500   0002eb00  00000188  0002e978  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    0000ef48   0000ef48    r-x
+  00000000    00000000    00000020   00000020    r-x .intvecs
+  00000020    00000020    0000eb84   0000eb84    r-x .text
+  0000eba4    0000eba4    0000036a   0000036a    r-- .const
+  0000ef10    0000ef10    00000004   00000004    r-- .init_array
+  0000ef18    0000ef18    00000030   00000030    r-- .cinit
+08001500    08001500    00000188   00000000    rw-
+  08001500    08001500    00000174   00000000    rw- .bss
+  08001674    08001674    00000014   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000020     
+                  00000000    00000020     sys_intvecs.obj (.intvecs)
+
+.text      0    00000020    0000eb84     
+                  00000020    00002cdc     sys_selftest.obj (.text)
+                  00002cfc    00002240     EVE_API.obj (.text)
+                  00004f3c    000012fc     dashboard.obj (.text)
+                  00006238    00000bd8     spi.obj (.text)
+                  00006e10    00000b64     system.obj (.text)
+                  00007974    00000a54     sys_vim.obj (.text)
+                  000083c8    00000a4e     rtsv7R4_T_be_v3D16_eabi.lib : _printfi.c.obj (.text:__TI_printfi)
+                  00008e16    00000002                                 : div0.asm.obj (.text)
+                  00008e18    000008b8     pinmux.obj (.text)
+                  000096d0    000007d0     Bridgetek_EVE2.obj (.text)
+                  00009ea0    000006bc     ui_touch.obj (.text)
+                  0000a55c    00000664     errata_SSWF021_45.obj (.text)
+                  0000abc0    000005bc     esm.obj (.text)
+                  0000b17c    0000059c     sys_main.obj (.text)
+                  0000b718    00000498     EVE_MCU.obj (.text)
+                  0000bbb0    00000484     gio.obj (.text)
+                  0000c034    000003c0     EVE_HAL.obj (.text)
+                  0000c3f4    0000034c     sys_core.obj (.text)
+                  0000c740    000002cc     sys_vim.obj (.text:retain)
+                  0000ca0c    000002b4     rtsv7R4_T_be_v3D16_eabi.lib : ull_div32.asm.obj (.text)
+                  0000ccc0    000002b0     spi.obj (.text:retain)
+                  0000cf70    00000288     sys_startup.obj (.text:retain)
+                  0000d1f8    00000250     ui_buttons.obj (.text)
+                  0000d448    00000248     rtsv7R4_T_be_v3D16_eabi.lib : _printfi.c.obj (.text:_pconv_a)
+                  0000d690    000001d0     ui_rpm_bar.obj (.text)
+                  0000d860    000001a0     rtsv7R4_T_be_v3D16_eabi.lib : _printfi.c.obj (.text:_pconv_g)
+                  0000da00    00000124     rti.obj (.text:retain)
+                  0000db24    00000114     esm.obj (.text:retain)
+                  0000dc38    00000104     rtsv7R4_T_be_v3D16_eabi.lib : _printfi.c.obj (.text:_pconv_e)
+                  0000dd3c    000000fc                                 : _printfi.c.obj (.text:fcvt)
+                  0000de38    000000f0                                 : s_scalbn.c.obj (.text:scalbn)
+                  0000df28    000000e8     dabort.obj (.text)
+                  0000e010    000000e0     sys_pmu.obj (.text)
+                  0000e0f0    000000c8     notification.obj (.text)
+                  0000e1b8    000000ad     rtsv7R4_T_be_v3D16_eabi.lib : _printfi.c.obj (.text:_ltostr)
+                  0000e265    00000001     --HOLE-- [fill = 0]
+                  0000e266    0000009c                                 : memcpy_t2.asm.obj (.text)
+                  0000e302    0000007a                                 : _printfi.c.obj (.text:_mcpy)
+                  0000e37c    0000007a                                 : memset_t2.asm.obj (.text)
+                  0000e3f6    00000002     --HOLE-- [fill = 0]
+                  0000e3f8    00000074                                 : s_frexp.c.obj (.text:frexp)
+                  0000e46c    0000006c                                 : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  0000e4d8    00000068     dashboard.obj (.text:_ZN14Bridgetek_EVE210CMD_BUTTONEssssstPKcz)
+                  0000e540    00000060     rtsv7R4_T_be_v3D16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit:__TI_auto_init_nobinit)
+                  0000e5a0    00000058     dashboard.obj (.text:_ZN14Bridgetek_EVE28CMD_TEXTEssstPKcz)
+                  0000e5f8    00000054     rtsv7R4_T_be_v3D16_eabi.lib : _ltoa.c.obj (.text:__TI_ltoa)
+                  0000e64c    00000054                                 : _printfi.c.obj (.text:_ecpy)
+                  0000e6a0    00000054                                 : i_div32.asm.obj (.text)
+                  0000e6f4    00000050                                 : _printfi.c.obj (.text:_pconv_f)
+                  0000e744    00000050                                 : atoi.c.obj (.text:atoi)
+                  0000e794    0000004c     dashboard.obj (.text:_ZN14Bridgetek_EVE212CMD_PROGRESSEssssttt)
+                  0000e7e0    00000040     rtsv7R4_T_be_v3D16_eabi.lib : _printfi.c.obj (.text:_fcpy)
+                  0000e820    00000040                                 : sprintf.c.obj (.text:sprintf)
+                  0000e860    0000003c     dashboard.obj (.text:_ZN14Bridgetek_EVE210CMD_NUMBEREsssti)
+                  0000e89c    00000038     rtsv7R4_T_be_v3D16_eabi.lib : strstr.c.obj (.text:strstr)
+                  0000e8d4    00000028     dashboard.obj (.text:_ZN14Bridgetek_EVE215CLEAR_COLOR_RGBEhhh)
+                  0000e8fc    00000028     dashboard.obj (.text:_ZN14Bridgetek_EVE25CLEAREhhh)
+                  0000e924    00000028     dashboard.obj (.text:_ZN14Bridgetek_EVE29COLOR_RGBEhhh)
+                  0000e94c    00000026     rtsv7R4_T_be_v3D16_eabi.lib : memccpy.c.obj (.text:memccpy)
+                  0000e972    00000002     --HOLE-- [fill = 0]
+                  0000e974    00000020     ui_touch.obj (.text:_ZN14Bridgetek_EVE213LIB_MemWrite8Ejh)
+                  0000e994    00000020     ui_touch.obj (.text:_ZN14Bridgetek_EVE214LIB_MemWrite32Ejj)
+                  0000e9b4    00000020     dashboard.obj (.text:_ZN14Bridgetek_EVE28VERTEX2FEss)
+                  0000e9d4    0000001e     rtsv7R4_T_be_v3D16_eabi.lib : s_copysign.c.obj (.text:copysign)
+                  0000e9f2    0000001c                                 : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  0000ea0e    0000001a                                 : sprintf.c.obj (.text:_outs)
+                  0000ea28    00000018     ui_touch.obj (.text:_ZN14Bridgetek_EVE212LIB_MemRead8Ej)
+                  0000ea40    00000018     ui_touch.obj (.text:_ZN14Bridgetek_EVE213CMD_CALIBRATEEj)
+                  0000ea58    00000018     ui_touch.obj (.text:_ZN14Bridgetek_EVE213LIB_MemRead16Ej)
+                  0000ea70    00000018     ui_touch.obj (.text:_ZN14Bridgetek_EVE213LIB_MemRead32Ej)
+                  0000ea88    00000018     dashboard.obj (.text:_ZN14Bridgetek_EVE23TAGEh)
+                  0000eaa0    00000018     dashboard.obj (.text:_ZN14Bridgetek_EVE25BEGINEh)
+                  0000eab8    00000016     rtsv7R4_T_be_v3D16_eabi.lib : strchr.c.obj (.text:strchr)
+                  0000eace    00000016                                 : strlen.c.obj (.text:strlen)
+                  0000eae4    00000012                                 : wcslen.c.obj (.text:wcslen)
+                  0000eaf6    00000002     --HOLE-- [fill = 0]
+                  0000eaf8    00000010     dashboard.obj (.text:_ZN14Bridgetek_EVE211CMD_DLSTARTEv)
+                  0000eb08    00000010     dashboard.obj (.text:_ZN14Bridgetek_EVE216LIB_EndCoProListEv)
+                  0000eb18    00000010     dashboard.obj (.text:_ZN14Bridgetek_EVE218LIB_BeginCoProListEv)
+                  0000eb28    00000010     ui_touch.obj (.text:_ZN14Bridgetek_EVE219LIB_AwaitCoProEmptyEv)
+                  0000eb38    00000010     dashboard.obj (.text:_ZN14Bridgetek_EVE23ENDEv)
+                  0000eb48    00000010     sys_main.obj (.text:_ZN14Bridgetek_EVE24InitEv)
+                  0000eb58    00000010     dashboard.obj (.text:_ZN14Bridgetek_EVE27DISPLAYEv)
+                  0000eb68    00000010     dashboard.obj (.text:_ZN14Bridgetek_EVE28CMD_SWAPEv)
+                  0000eb78    0000000e     rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000eb86    0000000a                                 : sprintf.c.obj (.text:_outc)
+                  0000eb90    00000008                                 : errno.c.obj (.text:__aeabi_errno_addr)
+                  0000eb98    00000004                                 : exit.c.obj (.text:abort:abort)
+                  0000eb9c    00000004     sys_phantom.obj (.text:retain)
+                  0000eba0    00000004     sys_startup.obj (.text)
+
+.const     0    0000eba4    0000036a     
+                  0000eba4    00000200     sys_vim.obj (.const:s_vim_init)
+                  0000eda4    00000101     rtsv7R4_T_be_v3D16_eabi.lib : ctype.c.obj (.const:.string:_ctypes_)
+                  0000eea5    00000023     Bridgetek_EVE2.obj (.const:.string:$P$T0$1)
+                  0000eec8    00000023     Bridgetek_EVE2.obj (.const:.string:$P$T1$2)
+                  0000eeeb    00000023     Bridgetek_EVE2.obj (.const:.string:$P$T2$3)
+
+.cinit     0    0000ef18    00000030     
+                  0000ef18    0000000c     (__TI_handler_table)
+                  0000ef24    0000000b     (.cinit..data.load) [load image, compression = lzss]
+                  0000ef2f    00000001     --HOLE-- [fill = 0]
+                  0000ef30    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000ef38    00000010     (__TI_cinit_table)
+
+.bss       0    08001500    00000174     UNINITIALIZED
+                  08001500    00000078     spi.obj (.bss:g_spiPacket_t)
+                  08001578    00000069     sys_main.obj (.bss:eve)
+                  080015e1    00000003     --HOLE--
+                  080015e4    0000004c     (.common:data)
+                  08001630    00000004     (.common:EVE_DISP_CSPREAD)
+                  08001634    00000004     (.common:EVE_DISP_DITHER)
+                  08001638    00000004     (.common:EVE_DISP_HCYCLE)
+                  0800163c    00000004     (.common:EVE_DISP_HEIGHT)
+                  08001640    00000004     (.common:EVE_DISP_HOFFSET)
+                  08001644    00000004     (.common:EVE_DISP_HSYNC0)
+                  08001648    00000004     (.common:EVE_DISP_HSYNC1)
+                  0800164c    00000004     (.common:EVE_DISP_PCLK)
+                  08001650    00000004     (.common:EVE_DISP_PCLKPOL)
+                  08001654    00000004     (.common:EVE_DISP_PCLK_FREQ)
+                  08001658    00000004     (.common:EVE_DISP_SWIZZLE)
+                  0800165c    00000004     (.common:EVE_DISP_VCYCLE)
+                  08001660    00000004     (.common:EVE_DISP_VOFFSET)
+                  08001664    00000004     (.common:EVE_DISP_VSYNC0)
+                  08001668    00000004     (.common:EVE_DISP_VSYNC1)
+                  0800166c    00000004     (.common:EVE_DISP_WIDTH)
+                  08001670    00000004     (.common:EVE_TOUCH_ADDR)
+
+.data      0    08001674    00000014     UNINITIALIZED
+                  08001674    00000006     ui_touch.obj (.data)
+                  0800167a    00000004     EVE_MCU.obj (.data:dataconfig)
+                  0800167e    00000001     pages.obj (.data)
+                  0800167f    00000001     --HOLE--
+                  08001680    00000004     rtsv7R4_T_be_v3D16_eabi.lib : errno.c.obj (.data)
+                  08001684    00000004     sys_main.obj (.data)
+
+__llvm_prf_cnts 
+*          0    08001500    00000000     UNINITIALIZED
+
+.init_array 
+*          0    0000ef10    00000004     
+                  0000ef10    00000004     sys_main.obj (.init_array)
+
+MODULE SUMMARY
+
+       Module                       code    ro data   rw data
+       ------                       ----    -------   -------
+    .\ft81x_driver\
+       EVE_API.obj                  8768    0         0      
+       Bridgetek_EVE2.obj           2000    105       68     
+       EVE_MCU.obj                  1176    0         4      
+       EVE_HAL.obj                  960     0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       12904   105       72     
+                                                             
+    .\source\
+       sys_selftest.obj             11484   0         0      
+       dashboard.obj                5484    0         0      
+       sys_vim.obj                  3360    512       0      
+       spi.obj                      3720    0         120    
+       system.obj                   2916    0         0      
+       pinmux.obj                   2232    0         0      
+       ui_touch.obj                 1900    0         6      
+       esm.obj                      1744    0         0      
+       sys_main.obj                 1452    4         185    
+       errata_SSWF021_45.obj        1636    0         0      
+       gio.obj                      1156    0         0      
+       sys_core.obj                 844     0         0      
+       sys_startup.obj              652     0         0      
+       ui_buttons.obj               592     0         0      
+       ui_rpm_bar.obj               464     0         0      
+       rti.obj                      292     0         0      
+       dabort.obj                   232     0         0      
+       sys_pmu.obj                  224     0         0      
+       notification.obj             200     0         0      
+       sys_intvecs.obj              32      0         0      
+       sys_phantom.obj              4       0         0      
+       pages.obj                    0       0         1      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       40620   516       312    
+                                                             
+    C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib/rtsv7R4_T_be_v3D16_eabi.lib
+       _printfi.c.obj               4673    0         0      
+       ull_div32.asm.obj            692     0         0      
+       ctype.c.obj                  0       257       0      
+       s_scalbn.c.obj               240     0         0      
+       memcpy_t2.asm.obj            156     0         0      
+       memset_t2.asm.obj            122     0         0      
+       s_frexp.c.obj                116     0         0      
+       copy_decompress_lzss.c.obj   108     0         0      
+       sprintf.c.obj                100     0         0      
+       autoinit.c.obj               96      0         0      
+       _ltoa.c.obj                  84      0         0      
+       i_div32.asm.obj              84      0         0      
+       atoi.c.obj                   80      0         0      
+       strstr.c.obj                 56      0         0      
+       memccpy.c.obj                38      0         0      
+       s_copysign.c.obj             30      0         0      
+       copy_zero_init.c.obj         28      0         0      
+       strchr.c.obj                 22      0         0      
+       strlen.c.obj                 22      0         0      
+       wcslen.c.obj                 18      0         0      
+       copy_decompress_none.c.obj   14      0         0      
+       errno.c.obj                  8       0         4      
+       exit.c.obj                   4       0         0      
+       div0.asm.obj                 2       0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       6793    257       4      
+                                                             
+       Linker Generated:            0       47        0      
+    +--+----------------------------+-------+---------+---------+
+       Grand Total:                 60317   925       388    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000ef38 records: 2, size/record: 8, table size: 16
+	.data: load addr=0000ef24, load size=0000000b bytes, run addr=08001674, run size=00000014 bytes, compression=lzss
+	.bss: load addr=0000ef30, load size=00000008 bytes, run addr=08001500, run size=00000174 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000ef18 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_lzss
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                                   
+-------   ----                                                   
+0000eb99  C$$EXIT                                                
+00004988  COUNT_ARGS                                             
+00003964  EVE_ALPHA_FUNC                                         
+00003c18  EVE_BEGIN                                              
+00003828  EVE_BITMAP_HANDLE                                      
+00003870  EVE_BITMAP_LAYOUT                                      
+00003ecc  EVE_BITMAP_LAYOUT_H                                    
+000038b8  EVE_BITMAP_SIZE                                        
+00003f00  EVE_BITMAP_SIZE_H                                      
+0000384c  EVE_BITMAP_SOURCE                                      
+00003d80  EVE_BITMAP_TRANSFORM_A                                 
+00003dc4  EVE_BITMAP_TRANSFORM_B                                 
+00003dfc  EVE_BITMAP_TRANSFORM_C                                 
+00003e28  EVE_BITMAP_TRANSFORM_D                                 
+00003e60  EVE_BITMAP_TRANSFORM_E                                 
+00003e84  EVE_BITMAP_TRANSFORM_F                                 
+000039e0  EVE_BLEND_FUNC                                         
+00003bd0  EVE_CALL                                               
+0000391c  EVE_CELL                                               
+000036e8  EVE_CLEAR                                              
+000036c4  EVE_CLEAR_COLOR                                        
+00003a90  EVE_CLEAR_COLOR_A                                      
+0000367c  EVE_CLEAR_COLOR_RGB                                    
+00003ad8  EVE_CLEAR_STENCIL                                      
+00003afc  EVE_CLEAR_TAG                                          
+00003660  EVE_CMD                                                
+00004624  EVE_CMD_APPEND                                         
+000041fc  EVE_CMD_BGCOLOR                                        
+000044fc  EVE_CMD_BITMAP_TRANSFORM                               
+00004ad4  EVE_CMD_BUTTON                                         
+00004594  EVE_CMD_CALIBRATE                                      
+000046b4  EVE_CMD_CLOCK                                          
+00004860  EVE_CMD_COLDSTART                                      
+00004cac  EVE_CMD_CSKETCH                                        
+00004878  EVE_CMD_DIAL                                           
+000048f8  EVE_CMD_DLSTART                                        
+00004304  EVE_CMD_FGCOLOR                                        
+000040a4  EVE_CMD_GAUGE                                          
+000043e4  EVE_CMD_GETMATRIX                                      
+0000413c  EVE_CMD_GETPROPS                                       
+000047dc  EVE_CMD_GETPTR                                         
+000044d8  EVE_CMD_GRADCOLOR                                      
+0000471c  EVE_CMD_GRADIENT                                       
+000045b8  EVE_CMD_INFLATE                                        
+000042e0  EVE_CMD_INTERRUPT                                      
+00003fc0  EVE_CMD_KEYS                                           
+0000408c  EVE_CMD_LOADIDENTITY                                   
+000048c8  EVE_CMD_LOADIMAGE                                      
+0000460c  EVE_CMD_LOGO                                           
+00004d30  EVE_CMD_MEDIAFIFO                                      
+00004178  EVE_CMD_MEMCPY                                         
+0000494c  EVE_CMD_MEMCRC                                         
+0000449c  EVE_CMD_MEMSET                                         
+0000434c  EVE_CMD_MEMWRITE                                       
+00004654  EVE_CMD_MEMZERO                                        
+0000403c  EVE_CMD_NUMBER                                         
+00004da8  EVE_CMD_PLAYVIDEO                                      
+00004800  EVE_CMD_PROGRESS                                       
+0000410c  EVE_CMD_REGREAD                                        
+00004d78  EVE_CMD_ROMFONT                                        
+00004328  EVE_CMD_ROTATE                                         
+00004684  EVE_CMD_SCALE                                          
+00004934  EVE_CMD_SCREENSAVER                                    
+0000437c  EVE_CMD_SCROLLBAR                                      
+00004e18  EVE_CMD_SETBASE                                        
+00004e3c  EVE_CMD_SETBITMAP                                      
+000045dc  EVE_CMD_SETFONT                                        
+00004ea8  EVE_CMD_SETFONT2                                       
+00004774  EVE_CMD_SETMATRIX                                      
+00004d0c  EVE_CMD_SETROTATE                                      
+00004e84  EVE_CMD_SETSCRATCH                                     
+00004444  EVE_CMD_SKETCH                                         
+00004280  EVE_CMD_SLIDER                                         
+00004910  EVE_CMD_SNAPSHOT                                       
+00004ee4  EVE_CMD_SNAPSHOT2                                      
+000041b4  EVE_CMD_SPINNER                                        
+00004268  EVE_CMD_STOP                                           
+00004220  EVE_CMD_SWAP                                           
+00004d60  EVE_CMD_SYNC                                           
+000049fc  EVE_CMD_TEXT                                           
+00004bc0  EVE_CMD_TOGGLE                                         
+0000478c  EVE_CMD_TRACK                                          
+00004238  EVE_CMD_TRANSLATE                                      
+00004dd0  EVE_CMD_VIDEOFRAME                                     
+00004e00  EVE_CMD_VIDEOSTART                                     
+00003778  EVE_COLOR                                              
+00003ab4  EVE_COLOR_A                                            
+00003c3c  EVE_COLOR_MASK                                         
+00003730  EVE_COLOR_RGB                                          
+00003d40  EVE_DISPLAY                                            
+08001630  EVE_DISP_CSPREAD                                       
+08001634  EVE_DISP_DITHER                                        
+08001638  EVE_DISP_HCYCLE                                        
+0800163c  EVE_DISP_HEIGHT                                        
+08001640  EVE_DISP_HOFFSET                                       
+08001644  EVE_DISP_HSYNC0                                        
+08001648  EVE_DISP_HSYNC1                                        
+0800164c  EVE_DISP_PCLK                                          
+08001650  EVE_DISP_PCLKPOL                                       
+08001654  EVE_DISP_PCLK_FREQ                                     
+08001658  EVE_DISP_SWIZZLE                                       
+0800165c  EVE_DISP_VCYCLE                                        
+08001660  EVE_DISP_VOFFSET                                       
+08001664  EVE_DISP_VSYNC0                                        
+08001668  EVE_DISP_VSYNC1                                        
+0800166c  EVE_DISP_WIDTH                                         
+00003c94  EVE_END                                                
+00002cfc  EVE_Init                                               
+00003bf4  EVE_JUMP                                               
+00002f6c  EVE_LIB_AwaitCoProEmpty                                
+00002f40  EVE_LIB_BeginCoProList                                 
+000035c8  EVE_LIB_BitmapTransform                                
+00002f5c  EVE_LIB_EndCoProList                                   
+000034d8  EVE_LIB_GetMatrix                                      
+00003448  EVE_LIB_GetProps                                       
+000034a8  EVE_LIB_GetPtr                                         
+00002f78  EVE_LIB_GetResult                                      
+00003588  EVE_LIB_MemCrc                                         
+00003354  EVE_LIB_MemRead16                                      
+00003324  EVE_LIB_MemRead32                                      
+00003384  EVE_LIB_MemRead8                                       
+00003338  EVE_LIB_MemWrite16                                     
+00003308  EVE_LIB_MemWrite32                                     
+00003368  EVE_LIB_MemWrite8                                      
+000030dc  EVE_LIB_ReadDataFromRAMG                               
+00003398  EVE_LIB_SendString                                     
+000031d0  EVE_LIB_WriteDataToCMD                                 
+00002fd8  EVE_LIB_WriteDataToRAMG                                
+00003a6c  EVE_LINE_WIDTH                                         
+00003d04  EVE_MACRO                                              
+00003fa8  EVE_NOP                                                
+00003f38  EVE_PALETTE_SOURCE                                     
+00003a48  EVE_POINT_SIZE                                         
+00003cc4  EVE_RESTORE_CONTEXT                                    
+00003cdc  EVE_RETURN                                             
+00003cac  EVE_SAVE_CONTEXT                                       
+00003b9c  EVE_SCISSOR_SIZE                                       
+00003b68  EVE_SCISSOR_XY                                         
+00003998  EVE_STENCIL_FUNC                                       
+00003b20  EVE_STENCIL_MASK                                       
+00003a14  EVE_STENCIL_OP                                         
+00003940  EVE_TAG                                                
+00003b44  EVE_TAG_MASK                                           
+08001670  EVE_TOUCH_ADDR                                         
+0000379c  EVE_VERTEX2F                                           
+000037d0  EVE_VERTEX2II                                          
+00003ea8  EVE_VERTEX_FORMAT                                      
+00003f5c  EVE_VERTEX_TRANSLATE_X                                 
+00003f84  EVE_VERTEX_TRANSLATE_Y                                 
+0000c3cc  HAL_CheckCmdFreeSpace                                  
+0000c0b8  HAL_ChipSelect                                         
+0000c0ac  HAL_EVE_Deinit                                         
+0000c034  HAL_EVE_Init                                           
+0000c36c  HAL_GetCmdPointer                                      
+0000c324  HAL_HostCmdWrite                                       
+0000c35c  HAL_IncCmdPointer                                      
+0000c2c4  HAL_MemRead16                                          
+0000c294  HAL_MemRead32                                          
+0000c2f4  HAL_MemRead8                                           
+0000c234  HAL_MemWrite16                                         
+0000c204  HAL_MemWrite32                                         
+0000c264  HAL_MemWrite8                                          
+0000c0dc  HAL_PowerDown                                          
+0000c19c  HAL_Read                                               
+0000c1d8  HAL_Read16                                             
+0000c1b8  HAL_Read32                                             
+0000c1f0  HAL_Read8                                              
+0000c120  HAL_SetReadAddress                                     
+0000c100  HAL_SetWriteAddress                                    
+0000c384  HAL_WaitCmdFifoEmpty                                   
+0000c13c  HAL_Write                                              
+0000c170  HAL_Write16                                            
+0000c158  HAL_Write32                                            
+0000c188  HAL_Write8                                             
+0000b77c  MCU_CShigh                                             
+0000b764  MCU_CSlow                                              
+0000b75c  MCU_Deinit                                             
+0000b92c  MCU_Delay_20ms                                         
+0000b96c  MCU_Delay_500ms                                        
+0000b718  MCU_Init                                               
+0000b7ac  MCU_PDhigh                                             
+0000b794  MCU_PDlow                                              
+0000ba90  MCU_SPIRead                                            
+0000b9d0  MCU_SPIRead16                                          
+0000b9f4  MCU_SPIRead24                                          
+0000ba18  MCU_SPIRead32                                          
+0000b9ac  MCU_SPIRead8                                           
+0000ba3c  MCU_SPIWrite                                           
+0000b9e0  MCU_SPIWrite16                                         
+0000ba04  MCU_SPIWrite24                                         
+0000ba28  MCU_SPIWrite32                                         
+0000b9bc  MCU_SPIWrite8                                          
+0000b760  MCU_Setup                                              
+0000bb40  MCU_be16toh                                            
+0000bb5c  MCU_be32toh                                            
+0000bae4  MCU_htobe16                                            
+0000bb00  MCU_htobe32                                            
+0000bb18  MCU_htole16                                            
+0000bb2c  MCU_htole32                                            
+0000bb74  MCU_le16toh                                            
+0000bb88  MCU_le32toh                                            
+0000ef10  SHT$$INIT_ARRAY$$Base                                  
+0000ef14  SHT$$INIT_ARRAY$$Limit                                 
+00006acc  SpiRxStatus                                            
+00006a40  SpiTxStatus                                            
+0000a164  _Z10eve_get_xyR14Bridgetek_EVE2PtS1_                   
+00009ea0  _Z11block_delayi                                       
+00005304  _Z11draw_centerR14Bridgetek_EVE2P16dashboard_data_t    
+00005548  _Z11draw_statusR14Bridgetek_EVE2P16dashboard_data_t    
+00009f14  _Z12eve_read_tagR14Bridgetek_EVE2Ph                    
+00009f80  _Z13eve_calibrateR14Bridgetek_EVE2                     
+00005a4c  _Z14dashboard_drawR14Bridgetek_EVE2P16dashboard_data_t 
+0000d1f8  _Z15ui_draw_buttonsR14Bridgetek_EVE2P16dashboard_data_t
+0000d690  _Z15ui_draw_rpm_barR14Bridgetek_EVE2f                  
+0000a1e0  _Z15ui_handle_touchR14Bridgetek_EVE2P16dashboard_data_t
+00005178  _Z16draw_motor_blockR14Bridgetek_EVE2iPKcfff           
+0000b7c4  _Z17MCU_SPIReadWrite8h                                 
+0000b80c  _Z18MCU_SPIReadWrite16t                                
+0000b854  _Z18MCU_SPIReadWrite24j                                
+0000b8b4  _Z18MCU_SPIReadWrite32j                                
+0000e4d8  _ZN14Bridgetek_EVE210CMD_BUTTONEssssstPKcz             
+0000e860  _ZN14Bridgetek_EVE210CMD_NUMBEREsssti                  
+00009730  _ZN14Bridgetek_EVE210DISP_WIDTHEv                      
+0000eaf8  _ZN14Bridgetek_EVE211CMD_DLSTARTEv                     
+00009748  _ZN14Bridgetek_EVE211DISP_HEIGHTEv                     
+0000e794  _ZN14Bridgetek_EVE212CMD_PROGRESSEssssttt              
+0000ea28  _ZN14Bridgetek_EVE212LIB_MemRead8Ej                    
+0000ea40  _ZN14Bridgetek_EVE213CMD_CALIBRATEEj                   
+0000ea58  _ZN14Bridgetek_EVE213LIB_MemRead16Ej                   
+0000ea70  _ZN14Bridgetek_EVE213LIB_MemRead32Ej                   
+0000e974  _ZN14Bridgetek_EVE213LIB_MemWrite8Ejh                  
+0000e994  _ZN14Bridgetek_EVE214LIB_MemWrite32Ejj                 
+0000e8d4  _ZN14Bridgetek_EVE215CLEAR_COLOR_RGBEhhh               
+0000eb08  _ZN14Bridgetek_EVE216LIB_EndCoProListEv                
+0000eb18  _ZN14Bridgetek_EVE218LIB_BeginCoProListEv              
+0000eb28  _ZN14Bridgetek_EVE219LIB_AwaitCoProEmptyEv             
+0000eb38  _ZN14Bridgetek_EVE23ENDEv                              
+0000ea88  _ZN14Bridgetek_EVE23TAGEh                              
+0000eb48  _ZN14Bridgetek_EVE24InitEv                             
+0000eaa0  _ZN14Bridgetek_EVE25BEGINEh                            
+0000e8fc  _ZN14Bridgetek_EVE25CLEAREhhh                          
+00009714  _ZN14Bridgetek_EVE25setupEj                            
+0000eb58  _ZN14Bridgetek_EVE27DISPLAYEv                          
+0000eb68  _ZN14Bridgetek_EVE28CMD_SWAPEv                         
+0000e5a0  _ZN14Bridgetek_EVE28CMD_TEXTEssstPKcz                  
+0000e9b4  _ZN14Bridgetek_EVE28VERTEX2FEss                        
+00009760  _ZN14Bridgetek_EVE28setpanelEj                         
+0000e924  _ZN14Bridgetek_EVE29COLOR_RGBEhhh                      
+000096d0  _ZN14Bridgetek_EVE2C1Ev                                
+000096d0  _ZN14Bridgetek_EVE2C2Ev                                
+0000ef38  __TI_CINIT_Base                                        
+0000ef48  __TI_CINIT_Limit                                       
+0000ef18  __TI_Handler_Table_Base                                
+0000ef24  __TI_Handler_Table_Limit                               
+0000c738  __TI_PINIT_Base                                        
+0000c73c  __TI_PINIT_Limit                                       
+0000e541  __TI_auto_init_nobinit                                 
+0000e46d  __TI_decompress_lzss                                   
+0000eb79  __TI_decompress_none                                   
+0000e5f9  __TI_ltoa                                              
+ffffffff  __TI_pprof_out_hndl                                    
+000083c9  __TI_printfi                                           
+ffffffff  __TI_prof_data_size                                    
+ffffffff  __TI_prof_data_start                                   
+00000000  __TI_static_base__                                     
+0000e9f3  __TI_zero_init_nomemset                                
+0000eb91  __aeabi_errno_addr                                     
+0000e6a0  __aeabi_idiv                                           
+00008e17  __aeabi_idiv0                                          
+0000e6a0  __aeabi_idivmod                                        
+00008e17  __aeabi_ldiv0                                          
+0000e37d  __aeabi_memclr                                         
+0000e37d  __aeabi_memclr4                                        
+0000e37d  __aeabi_memclr8                                        
+0000e267  __aeabi_memcpy                                         
+0000e267  __aeabi_memcpy4                                        
+0000e267  __aeabi_memcpy8                                        
+0000e37f  __aeabi_memset                                         
+0000e37f  __aeabi_memset4                                        
+0000e37f  __aeabi_memset8                                        
+0000ca0c  __aeabi_uldivmod                                       
+ffffffff  __binit__                                              
+ffffffff  __c_args__                                             
+08001500  __start___llvm_prf_cnts                                
+0000b650  __sti___12_sys_main_cpp_eve                            
+08001500  __stop___llvm_prf_cnts                                 
+0000cf70  _c_int00                                               
+0000c650  _coreClearAuxiliaryDataFault_                          
+0000c664  _coreClearAuxiliaryInstructionFault_                   
+0000c628  _coreClearDataFaultAddress_                            
+0000c600  _coreClearDataFault_                                   
+0000c63c  _coreClearInstructionFaultAddress_                     
+0000c614  _coreClearInstructionFault_                            
+0000c594  _coreDisableEventBusExport_                            
+0000c5d8  _coreDisableFlashEcc_                                  
+0000c5b4  _coreDisableRamEcc_                                    
+0000c584  _coreEnableEventBusExport_                             
+0000c5c4  _coreEnableFlashEcc_                                   
+0000c5e8  _coreEnableIrqVicOffset_                               
+0000c5a4  _coreEnableRamEcc_                                     
+0000c56c  _coreEnableVfp_                                        
+0000c648  _coreGetAuxiliaryDataFault_                            
+0000c65c  _coreGetAuxiliaryInstructionFault_                     
+0000c620  _coreGetDataFaultAddress_                              
+0000c5f8  _coreGetDataFault_                                     
+0000c634  _coreGetInstructionFaultAddress_                       
+0000c60c  _coreGetInstructionFault_                              
+0000c3f4  _coreInitRegisters_                                    
+0000c500  _coreInitStackPointer_                                 
+0000eda4  _ctypes_                                               
+0000df28  _dabort                                                
+0000c678  _disable_FIQ_interrupt_                                
+0000c680  _disable_IRQ_interrupt_                                
+0000c670  _disable_interrupt_                                    
+0000c688  _enable_interrupt_                                     
+0000c718  _errata_CORTEXR4_57_                                   
+0000c728  _errata_CORTEXR4_66_                                   
+0000a55c  _errata_SSWF021_45_both_plls                           
+0000a750  _errata_SSWF021_45_pll1                                
+0000a8c8  _errata_SSWF021_45_pll2                                
+0000c690  _esmCcmErrorsClear_                                    
+0000c54c  _getCPSRValue_                                         
+0000c554  _gotoCPUIdle_                                          
+0000e06c  _pmuDisableCountersGlobal_                             
+0000e05c  _pmuEnableCountersGlobal_                              
+0000e0c8  _pmuGetCycleCount_                                     
+0000e0d0  _pmuGetEventCount_                                     
+0000e0dc  _pmuGetOverflow_                                       
+0000e010  _pmuInit_                                              
+0000e09c  _pmuResetCounters_                                     
+0000e07c  _pmuResetCycleCounter_                                 
+0000e08c  _pmuResetEventCounters_                                
+0000e0bc  _pmuSetCountEvent_                                     
+0000e0ac  _pmuStartCounters_                                     
+0000e0b4  _pmuStopCounters_                                      
+UNDEFED   _system_post_cinit                                     
+0000eb99  abort                                                  
+0000126c  adc1ParityCheck                                        
+00001358  adc2ParityCheck                                        
+0000e745  atoi                                                   
+ffffffff  binit                                                  
+00001410  can1ParityCheck                                        
+000014e8  can2ParityCheck                                        
+000015b0  can3ParityCheck                                        
+00000030  ccmSelfCheck                                           
+000026fc  ccmr4GetConfigValue                                    
+00000938  checkB0RAMECC                                          
+00000b28  checkB1RAMECC                                          
+00001c18  checkClockMonitor                                      
+00000d18  checkFlashECC                                          
+00001cf4  checkFlashEEPROMECC                                    
+00001e8c  checkPLL1Slip                                          
+00001f8c  checkPLL2Slip                                          
+00002050  checkRAMAddrParity                                     
+000019d0  checkRAMECC                                            
+0000215c  checkRAMUERRTest                                       
+000007bc  checkefcSelfTest                                       
+0000e9d5  copysign                                               
+0000e9d5  copysignl                                              
+00000234  cpuSelfTest                                            
+00000dfc  cpuSelfTestFail                                        
+0800167e  current_page                                           
+00007898  customTrimLPO                                          
+00000df4  custom_dabort                                          
+080015e4  data                                                   
+00002b58  disableParity                                          
+0000e1a4  dmaGroupANotification                                  
+00000eac  dmaParityCheck                                         
+00000660  efcCheck                                               
+00002660  efcGetConfigValue                                      
+00000794  efcSelfTest                                            
+000006e8  efcStuckZeroTest                                       
+00002ad0  enableParity                                           
+0000276c  errata_PBIST_4                                         
+08001680  errno                                                  
+0000ad44  esmActivateNormalOperation                             
+0000ae18  esmClearStatus                                         
+0000ae58  esmClearStatusBuffer                                   
+0000ad0c  esmDisableError                                        
+0000ad7c  esmDisableInterrupt                                    
+0000ace4  esmEnableError                                         
+0000ad54  esmEnableInterrupt                                     
+0000af50  esmEnterSelfTest                                       
+0000acc8  esmError                                               
+0000b028  esmGetConfigValue                                      
+0000ae94  esmGetStatus                                           
+0000af18  esmGetStatusBuffer                                     
+0000e0f0  esmGroup1Notification                                  
+0000e100  esmGroup2Notification                                  
+0000db24  esmHighInterrupt                                       
+0000abc0  esmInit                                                
+0000afd8  esmSelfTestStatus                                      
+0000ae74  esmSetCounterPreloadValue                              
+0000ada4  esmSetInterruptLevel                                   
+0000ad34  esmTriggerErrorPinReset                                
+08001578  eve                                                    
+000022c4  fmcBus1ParityCheck                                     
+0000085c  fmcBus2Check                                           
+00000898  fmcECCcheck                                            
+0000e3f9  frexp                                                  
+0000e3f9  frexpl                                                 
+0000be10  gioDisableNotification                                 
+0000bda8  gioEnableNotification                                  
+0000bd10  gioGetBit                                              
+0000be78  gioGetConfigValue                                      
+0000bd38  gioGetPort                                             
+0000bbb0  gioInit                                                
+0000e158  gioNotification                                        
+0000bca0  gioSetBit                                              
+0000bc80  gioSetDirection                                        
+0000bcf0  gioSetPort                                             
+0000bd50  gioToggleBit                                           
+0000eba0  handlePLLLockFail                                      
+00000f58  het1ParityCheck                                        
+000010c0  het2ParityCheck                                        
+00001004  htu1ParityCheck                                        
+000011bc  htu2ParityCheck                                        
+0000de39  ldexp                                                  
+0000de39  ldexpl                                                 
+0000b1a0  main                                                   
+00006f78  mapClocks                                              
+0000e94d  memccpy                                                
+0000e267  memcpy                                                 
+00000174  memoryInit                                             
+0000e110  memoryPort0TestFailNotification                        
+0000e12c  memoryPort1TestFailNotification                        
+0000e385  memset                                                 
+00001684  mibspi1ParityCheck                                     
+0000178c  mibspi3ParityCheck                                     
+000018b0  mibspi5ParityCheck                                     
+00008e18  muxInit                                                
+000023ec  pbistFail                                              
+00002470  pbistGetConfigValue                                    
+000005a8  pbistIsTestCompleted                                   
+000005d4  pbistIsTestPassed                                      
+00000608  pbistPortTestStatus                                    
+000004ac  pbistRun                                               
+000002cc  pbistSelfCheck                                         
+00000578  pbistStop                                              
+00006f24  periphInit                                             
+0000eb9c  phantomInterrupt                                       
+000092b4  pinmuxGetConfigValue                                   
+00000000  resetEntry                                             
+0000da00  rtiCompare0Interrupt                                   
+0000da48  rtiCompare1Interrupt                                   
+0000da90  rtiCompare2Interrupt                                   
+0000dad8  rtiCompare3Interrupt                                   
+0000e148  rtiNotification                                        
+0000de39  scalbn                                                 
+0000de39  scalbnl                                                
+0000e16c  sciNotification                                        
+00000020  selftestFailNotification                               
+00006ee4  setupFlash                                             
+00006e10  setupPLL                                               
+00006c04  spi4GetConfigValue                                     
+0000ccc0  spi4HighLevelInterrupt                                 
+00006b8c  spiDisableLoopback                                     
+00006bd8  spiDisableNotification                                 
+00006b58  spiEnableLoopback                                      
+00006ba8  spiEnableNotification                                  
+0000e194  spiEndNotification                                     
+000064a8  spiGetData                                             
+00006238  spiInit                                                
+0000e180  spiNotification                                        
+0000638c  spiReceiveData                                         
+00006900  spiSendAndGetData                                      
+000066cc  spiSendData                                            
+0000636c  spiSetFunctional                                       
+000067c4  spiTransmitAndReceiveData                              
+000065a0  spiTransmitData                                        
+0000e821  sprintf                                                
+0000775c  sramGetConfigValue                                     
+000025bc  stcGetConfigValue                                      
+000001b8  stcSelfCheck                                           
+00000df8  stcSelfCheckFail                                       
+0000eab9  strchr                                                 
+0000eacf  strlen                                                 
+0000e89d  strstr                                                 
+0000719c  systemGetConfigValue                                   
+000070a0  systemInit                                             
+0000716c  systemPowerDown                                        
+000075b0  tcmflashGetConfigValue                                 
+00006e70  trimLPO                                                
+00007a48  vimChannelMap                                          
+00007cb4  vimDisableInterrupt                                    
+00007aec  vimEnableInterrupt                                     
+00007d60  vimGetConfigValue                                      
+00007974  vimInit                                                
+00000e00  vimParityCheck                                         
+0000c740  vimParityErrorHandler                                  
+0000eae5  wcslen                                                 
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                                   
+-------   ----                                                   
+00000000  __TI_static_base__                                     
+00000000  resetEntry                                             
+00000020  selftestFailNotification                               
+00000030  ccmSelfCheck                                           
+00000174  memoryInit                                             
+000001b8  stcSelfCheck                                           
+00000234  cpuSelfTest                                            
+000002cc  pbistSelfCheck                                         
+000004ac  pbistRun                                               
+00000578  pbistStop                                              
+000005a8  pbistIsTestCompleted                                   
+000005d4  pbistIsTestPassed                                      
+00000608  pbistPortTestStatus                                    
+00000660  efcCheck                                               
+000006e8  efcStuckZeroTest                                       
+00000794  efcSelfTest                                            
+000007bc  checkefcSelfTest                                       
+0000085c  fmcBus2Check                                           
+00000898  fmcECCcheck                                            
+00000938  checkB0RAMECC                                          
+00000b28  checkB1RAMECC                                          
+00000d18  checkFlashECC                                          
+00000df4  custom_dabort                                          
+00000df8  stcSelfCheckFail                                       
+00000dfc  cpuSelfTestFail                                        
+00000e00  vimParityCheck                                         
+00000eac  dmaParityCheck                                         
+00000f58  het1ParityCheck                                        
+00001004  htu1ParityCheck                                        
+000010c0  het2ParityCheck                                        
+000011bc  htu2ParityCheck                                        
+0000126c  adc1ParityCheck                                        
+00001358  adc2ParityCheck                                        
+00001410  can1ParityCheck                                        
+000014e8  can2ParityCheck                                        
+000015b0  can3ParityCheck                                        
+00001684  mibspi1ParityCheck                                     
+0000178c  mibspi3ParityCheck                                     
+000018b0  mibspi5ParityCheck                                     
+000019d0  checkRAMECC                                            
+00001c18  checkClockMonitor                                      
+00001cf4  checkFlashEEPROMECC                                    
+00001e8c  checkPLL1Slip                                          
+00001f8c  checkPLL2Slip                                          
+00002050  checkRAMAddrParity                                     
+0000215c  checkRAMUERRTest                                       
+000022c4  fmcBus1ParityCheck                                     
+000023ec  pbistFail                                              
+00002470  pbistGetConfigValue                                    
+000025bc  stcGetConfigValue                                      
+00002660  efcGetConfigValue                                      
+000026fc  ccmr4GetConfigValue                                    
+0000276c  errata_PBIST_4                                         
+00002ad0  enableParity                                           
+00002b58  disableParity                                          
+00002cfc  EVE_Init                                               
+00002f40  EVE_LIB_BeginCoProList                                 
+00002f5c  EVE_LIB_EndCoProList                                   
+00002f6c  EVE_LIB_AwaitCoProEmpty                                
+00002f78  EVE_LIB_GetResult                                      
+00002fd8  EVE_LIB_WriteDataToRAMG                                
+000030dc  EVE_LIB_ReadDataFromRAMG                               
+000031d0  EVE_LIB_WriteDataToCMD                                 
+00003308  EVE_LIB_MemWrite32                                     
+00003324  EVE_LIB_MemRead32                                      
+00003338  EVE_LIB_MemWrite16                                     
+00003354  EVE_LIB_MemRead16                                      
+00003368  EVE_LIB_MemWrite8                                      
+00003384  EVE_LIB_MemRead8                                       
+00003398  EVE_LIB_SendString                                     
+00003448  EVE_LIB_GetProps                                       
+000034a8  EVE_LIB_GetPtr                                         
+000034d8  EVE_LIB_GetMatrix                                      
+00003588  EVE_LIB_MemCrc                                         
+000035c8  EVE_LIB_BitmapTransform                                
+00003660  EVE_CMD                                                
+0000367c  EVE_CLEAR_COLOR_RGB                                    
+000036c4  EVE_CLEAR_COLOR                                        
+000036e8  EVE_CLEAR                                              
+00003730  EVE_COLOR_RGB                                          
+00003778  EVE_COLOR                                              
+0000379c  EVE_VERTEX2F                                           
+000037d0  EVE_VERTEX2II                                          
+00003828  EVE_BITMAP_HANDLE                                      
+0000384c  EVE_BITMAP_SOURCE                                      
+00003870  EVE_BITMAP_LAYOUT                                      
+000038b8  EVE_BITMAP_SIZE                                        
+0000391c  EVE_CELL                                               
+00003940  EVE_TAG                                                
+00003964  EVE_ALPHA_FUNC                                         
+00003998  EVE_STENCIL_FUNC                                       
+000039e0  EVE_BLEND_FUNC                                         
+00003a14  EVE_STENCIL_OP                                         
+00003a48  EVE_POINT_SIZE                                         
+00003a6c  EVE_LINE_WIDTH                                         
+00003a90  EVE_CLEAR_COLOR_A                                      
+00003ab4  EVE_COLOR_A                                            
+00003ad8  EVE_CLEAR_STENCIL                                      
+00003afc  EVE_CLEAR_TAG                                          
+00003b20  EVE_STENCIL_MASK                                       
+00003b44  EVE_TAG_MASK                                           
+00003b68  EVE_SCISSOR_XY                                         
+00003b9c  EVE_SCISSOR_SIZE                                       
+00003bd0  EVE_CALL                                               
+00003bf4  EVE_JUMP                                               
+00003c18  EVE_BEGIN                                              
+00003c3c  EVE_COLOR_MASK                                         
+00003c94  EVE_END                                                
+00003cac  EVE_SAVE_CONTEXT                                       
+00003cc4  EVE_RESTORE_CONTEXT                                    
+00003cdc  EVE_RETURN                                             
+00003d04  EVE_MACRO                                              
+00003d40  EVE_DISPLAY                                            
+00003d80  EVE_BITMAP_TRANSFORM_A                                 
+00003dc4  EVE_BITMAP_TRANSFORM_B                                 
+00003dfc  EVE_BITMAP_TRANSFORM_C                                 
+00003e28  EVE_BITMAP_TRANSFORM_D                                 
+00003e60  EVE_BITMAP_TRANSFORM_E                                 
+00003e84  EVE_BITMAP_TRANSFORM_F                                 
+00003ea8  EVE_VERTEX_FORMAT                                      
+00003ecc  EVE_BITMAP_LAYOUT_H                                    
+00003f00  EVE_BITMAP_SIZE_H                                      
+00003f38  EVE_PALETTE_SOURCE                                     
+00003f5c  EVE_VERTEX_TRANSLATE_X                                 
+00003f84  EVE_VERTEX_TRANSLATE_Y                                 
+00003fa8  EVE_NOP                                                
+00003fc0  EVE_CMD_KEYS                                           
+0000403c  EVE_CMD_NUMBER                                         
+0000408c  EVE_CMD_LOADIDENTITY                                   
+000040a4  EVE_CMD_GAUGE                                          
+0000410c  EVE_CMD_REGREAD                                        
+0000413c  EVE_CMD_GETPROPS                                       
+00004178  EVE_CMD_MEMCPY                                         
+000041b4  EVE_CMD_SPINNER                                        
+000041fc  EVE_CMD_BGCOLOR                                        
+00004220  EVE_CMD_SWAP                                           
+00004238  EVE_CMD_TRANSLATE                                      
+00004268  EVE_CMD_STOP                                           
+00004280  EVE_CMD_SLIDER                                         
+000042e0  EVE_CMD_INTERRUPT                                      
+00004304  EVE_CMD_FGCOLOR                                        
+00004328  EVE_CMD_ROTATE                                         
+0000434c  EVE_CMD_MEMWRITE                                       
+0000437c  EVE_CMD_SCROLLBAR                                      
+000043e4  EVE_CMD_GETMATRIX                                      
+00004444  EVE_CMD_SKETCH                                         
+0000449c  EVE_CMD_MEMSET                                         
+000044d8  EVE_CMD_GRADCOLOR                                      
+000044fc  EVE_CMD_BITMAP_TRANSFORM                               
+00004594  EVE_CMD_CALIBRATE                                      
+000045b8  EVE_CMD_INFLATE                                        
+000045dc  EVE_CMD_SETFONT                                        
+0000460c  EVE_CMD_LOGO                                           
+00004624  EVE_CMD_APPEND                                         
+00004654  EVE_CMD_MEMZERO                                        
+00004684  EVE_CMD_SCALE                                          
+000046b4  EVE_CMD_CLOCK                                          
+0000471c  EVE_CMD_GRADIENT                                       
+00004774  EVE_CMD_SETMATRIX                                      
+0000478c  EVE_CMD_TRACK                                          
+000047dc  EVE_CMD_GETPTR                                         
+00004800  EVE_CMD_PROGRESS                                       
+00004860  EVE_CMD_COLDSTART                                      
+00004878  EVE_CMD_DIAL                                           
+000048c8  EVE_CMD_LOADIMAGE                                      
+000048f8  EVE_CMD_DLSTART                                        
+00004910  EVE_CMD_SNAPSHOT                                       
+00004934  EVE_CMD_SCREENSAVER                                    
+0000494c  EVE_CMD_MEMCRC                                         
+00004988  COUNT_ARGS                                             
+000049fc  EVE_CMD_TEXT                                           
+00004ad4  EVE_CMD_BUTTON                                         
+00004bc0  EVE_CMD_TOGGLE                                         
+00004cac  EVE_CMD_CSKETCH                                        
+00004d0c  EVE_CMD_SETROTATE                                      
+00004d30  EVE_CMD_MEDIAFIFO                                      
+00004d60  EVE_CMD_SYNC                                           
+00004d78  EVE_CMD_ROMFONT                                        
+00004da8  EVE_CMD_PLAYVIDEO                                      
+00004dd0  EVE_CMD_VIDEOFRAME                                     
+00004e00  EVE_CMD_VIDEOSTART                                     
+00004e18  EVE_CMD_SETBASE                                        
+00004e3c  EVE_CMD_SETBITMAP                                      
+00004e84  EVE_CMD_SETSCRATCH                                     
+00004ea8  EVE_CMD_SETFONT2                                       
+00004ee4  EVE_CMD_SNAPSHOT2                                      
+00005178  _Z16draw_motor_blockR14Bridgetek_EVE2iPKcfff           
+00005304  _Z11draw_centerR14Bridgetek_EVE2P16dashboard_data_t    
+00005548  _Z11draw_statusR14Bridgetek_EVE2P16dashboard_data_t    
+00005a4c  _Z14dashboard_drawR14Bridgetek_EVE2P16dashboard_data_t 
+00006238  spiInit                                                
+0000636c  spiSetFunctional                                       
+0000638c  spiReceiveData                                         
+000064a8  spiGetData                                             
+000065a0  spiTransmitData                                        
+000066cc  spiSendData                                            
+000067c4  spiTransmitAndReceiveData                              
+00006900  spiSendAndGetData                                      
+00006a40  SpiTxStatus                                            
+00006acc  SpiRxStatus                                            
+00006b58  spiEnableLoopback                                      
+00006b8c  spiDisableLoopback                                     
+00006ba8  spiEnableNotification                                  
+00006bd8  spiDisableNotification                                 
+00006c04  spi4GetConfigValue                                     
+00006e10  setupPLL                                               
+00006e70  trimLPO                                                
+00006ee4  setupFlash                                             
+00006f24  periphInit                                             
+00006f78  mapClocks                                              
+000070a0  systemInit                                             
+0000716c  systemPowerDown                                        
+0000719c  systemGetConfigValue                                   
+000075b0  tcmflashGetConfigValue                                 
+0000775c  sramGetConfigValue                                     
+00007898  customTrimLPO                                          
+00007974  vimInit                                                
+00007a48  vimChannelMap                                          
+00007aec  vimEnableInterrupt                                     
+00007cb4  vimDisableInterrupt                                    
+00007d60  vimGetConfigValue                                      
+000083c9  __TI_printfi                                           
+00008e17  __aeabi_idiv0                                          
+00008e17  __aeabi_ldiv0                                          
+00008e18  muxInit                                                
+000092b4  pinmuxGetConfigValue                                   
+000096d0  _ZN14Bridgetek_EVE2C1Ev                                
+000096d0  _ZN14Bridgetek_EVE2C2Ev                                
+00009714  _ZN14Bridgetek_EVE25setupEj                            
+00009730  _ZN14Bridgetek_EVE210DISP_WIDTHEv                      
+00009748  _ZN14Bridgetek_EVE211DISP_HEIGHTEv                     
+00009760  _ZN14Bridgetek_EVE28setpanelEj                         
+00009ea0  _Z11block_delayi                                       
+00009f14  _Z12eve_read_tagR14Bridgetek_EVE2Ph                    
+00009f80  _Z13eve_calibrateR14Bridgetek_EVE2                     
+0000a164  _Z10eve_get_xyR14Bridgetek_EVE2PtS1_                   
+0000a1e0  _Z15ui_handle_touchR14Bridgetek_EVE2P16dashboard_data_t
+0000a55c  _errata_SSWF021_45_both_plls                           
+0000a750  _errata_SSWF021_45_pll1                                
+0000a8c8  _errata_SSWF021_45_pll2                                
+0000abc0  esmInit                                                
+0000acc8  esmError                                               
+0000ace4  esmEnableError                                         
+0000ad0c  esmDisableError                                        
+0000ad34  esmTriggerErrorPinReset                                
+0000ad44  esmActivateNormalOperation                             
+0000ad54  esmEnableInterrupt                                     
+0000ad7c  esmDisableInterrupt                                    
+0000ada4  esmSetInterruptLevel                                   
+0000ae18  esmClearStatus                                         
+0000ae58  esmClearStatusBuffer                                   
+0000ae74  esmSetCounterPreloadValue                              
+0000ae94  esmGetStatus                                           
+0000af18  esmGetStatusBuffer                                     
+0000af50  esmEnterSelfTest                                       
+0000afd8  esmSelfTestStatus                                      
+0000b028  esmGetConfigValue                                      
+0000b1a0  main                                                   
+0000b650  __sti___12_sys_main_cpp_eve                            
+0000b718  MCU_Init                                               
+0000b75c  MCU_Deinit                                             
+0000b760  MCU_Setup                                              
+0000b764  MCU_CSlow                                              
+0000b77c  MCU_CShigh                                             
+0000b794  MCU_PDlow                                              
+0000b7ac  MCU_PDhigh                                             
+0000b7c4  _Z17MCU_SPIReadWrite8h                                 
+0000b80c  _Z18MCU_SPIReadWrite16t                                
+0000b854  _Z18MCU_SPIReadWrite24j                                
+0000b8b4  _Z18MCU_SPIReadWrite32j                                
+0000b92c  MCU_Delay_20ms                                         
+0000b96c  MCU_Delay_500ms                                        
+0000b9ac  MCU_SPIRead8                                           
+0000b9bc  MCU_SPIWrite8                                          
+0000b9d0  MCU_SPIRead16                                          
+0000b9e0  MCU_SPIWrite16                                         
+0000b9f4  MCU_SPIRead24                                          
+0000ba04  MCU_SPIWrite24                                         
+0000ba18  MCU_SPIRead32                                          
+0000ba28  MCU_SPIWrite32                                         
+0000ba3c  MCU_SPIWrite                                           
+0000ba90  MCU_SPIRead                                            
+0000bae4  MCU_htobe16                                            
+0000bb00  MCU_htobe32                                            
+0000bb18  MCU_htole16                                            
+0000bb2c  MCU_htole32                                            
+0000bb40  MCU_be16toh                                            
+0000bb5c  MCU_be32toh                                            
+0000bb74  MCU_le16toh                                            
+0000bb88  MCU_le32toh                                            
+0000bbb0  gioInit                                                
+0000bc80  gioSetDirection                                        
+0000bca0  gioSetBit                                              
+0000bcf0  gioSetPort                                             
+0000bd10  gioGetBit                                              
+0000bd38  gioGetPort                                             
+0000bd50  gioToggleBit                                           
+0000bda8  gioEnableNotification                                  
+0000be10  gioDisableNotification                                 
+0000be78  gioGetConfigValue                                      
+0000c034  HAL_EVE_Init                                           
+0000c0ac  HAL_EVE_Deinit                                         
+0000c0b8  HAL_ChipSelect                                         
+0000c0dc  HAL_PowerDown                                          
+0000c100  HAL_SetWriteAddress                                    
+0000c120  HAL_SetReadAddress                                     
+0000c13c  HAL_Write                                              
+0000c158  HAL_Write32                                            
+0000c170  HAL_Write16                                            
+0000c188  HAL_Write8                                             
+0000c19c  HAL_Read                                               
+0000c1b8  HAL_Read32                                             
+0000c1d8  HAL_Read16                                             
+0000c1f0  HAL_Read8                                              
+0000c204  HAL_MemWrite32                                         
+0000c234  HAL_MemWrite16                                         
+0000c264  HAL_MemWrite8                                          
+0000c294  HAL_MemRead32                                          
+0000c2c4  HAL_MemRead16                                          
+0000c2f4  HAL_MemRead8                                           
+0000c324  HAL_HostCmdWrite                                       
+0000c35c  HAL_IncCmdPointer                                      
+0000c36c  HAL_GetCmdPointer                                      
+0000c384  HAL_WaitCmdFifoEmpty                                   
+0000c3cc  HAL_CheckCmdFreeSpace                                  
+0000c3f4  _coreInitRegisters_                                    
+0000c500  _coreInitStackPointer_                                 
+0000c54c  _getCPSRValue_                                         
+0000c554  _gotoCPUIdle_                                          
+0000c56c  _coreEnableVfp_                                        
+0000c584  _coreEnableEventBusExport_                             
+0000c594  _coreDisableEventBusExport_                            
+0000c5a4  _coreEnableRamEcc_                                     
+0000c5b4  _coreDisableRamEcc_                                    
+0000c5c4  _coreEnableFlashEcc_                                   
+0000c5d8  _coreDisableFlashEcc_                                  
+0000c5e8  _coreEnableIrqVicOffset_                               
+0000c5f8  _coreGetDataFault_                                     
+0000c600  _coreClearDataFault_                                   
+0000c60c  _coreGetInstructionFault_                              
+0000c614  _coreClearInstructionFault_                            
+0000c620  _coreGetDataFaultAddress_                              
+0000c628  _coreClearDataFaultAddress_                            
+0000c634  _coreGetInstructionFaultAddress_                       
+0000c63c  _coreClearInstructionFaultAddress_                     
+0000c648  _coreGetAuxiliaryDataFault_                            
+0000c650  _coreClearAuxiliaryDataFault_                          
+0000c65c  _coreGetAuxiliaryInstructionFault_                     
+0000c664  _coreClearAuxiliaryInstructionFault_                   
+0000c670  _disable_interrupt_                                    
+0000c678  _disable_FIQ_interrupt_                                
+0000c680  _disable_IRQ_interrupt_                                
+0000c688  _enable_interrupt_                                     
+0000c690  _esmCcmErrorsClear_                                    
+0000c718  _errata_CORTEXR4_57_                                   
+0000c728  _errata_CORTEXR4_66_                                   
+0000c738  __TI_PINIT_Base                                        
+0000c73c  __TI_PINIT_Limit                                       
+0000c740  vimParityErrorHandler                                  
+0000ca0c  __aeabi_uldivmod                                       
+0000ccc0  spi4HighLevelInterrupt                                 
+0000cf70  _c_int00                                               
+0000d1f8  _Z15ui_draw_buttonsR14Bridgetek_EVE2P16dashboard_data_t
+0000d690  _Z15ui_draw_rpm_barR14Bridgetek_EVE2f                  
+0000da00  rtiCompare0Interrupt                                   
+0000da48  rtiCompare1Interrupt                                   
+0000da90  rtiCompare2Interrupt                                   
+0000dad8  rtiCompare3Interrupt                                   
+0000db24  esmHighInterrupt                                       
+0000de39  ldexp                                                  
+0000de39  ldexpl                                                 
+0000de39  scalbn                                                 
+0000de39  scalbnl                                                
+0000df28  _dabort                                                
+0000e010  _pmuInit_                                              
+0000e05c  _pmuEnableCountersGlobal_                              
+0000e06c  _pmuDisableCountersGlobal_                             
+0000e07c  _pmuResetCycleCounter_                                 
+0000e08c  _pmuResetEventCounters_                                
+0000e09c  _pmuResetCounters_                                     
+0000e0ac  _pmuStartCounters_                                     
+0000e0b4  _pmuStopCounters_                                      
+0000e0bc  _pmuSetCountEvent_                                     
+0000e0c8  _pmuGetCycleCount_                                     
+0000e0d0  _pmuGetEventCount_                                     
+0000e0dc  _pmuGetOverflow_                                       
+0000e0f0  esmGroup1Notification                                  
+0000e100  esmGroup2Notification                                  
+0000e110  memoryPort0TestFailNotification                        
+0000e12c  memoryPort1TestFailNotification                        
+0000e148  rtiNotification                                        
+0000e158  gioNotification                                        
+0000e16c  sciNotification                                        
+0000e180  spiNotification                                        
+0000e194  spiEndNotification                                     
+0000e1a4  dmaGroupANotification                                  
+0000e267  __aeabi_memcpy                                         
+0000e267  __aeabi_memcpy4                                        
+0000e267  __aeabi_memcpy8                                        
+0000e267  memcpy                                                 
+0000e37d  __aeabi_memclr                                         
+0000e37d  __aeabi_memclr4                                        
+0000e37d  __aeabi_memclr8                                        
+0000e37f  __aeabi_memset                                         
+0000e37f  __aeabi_memset4                                        
+0000e37f  __aeabi_memset8                                        
+0000e385  memset                                                 
+0000e3f9  frexp                                                  
+0000e3f9  frexpl                                                 
+0000e46d  __TI_decompress_lzss                                   
+0000e4d8  _ZN14Bridgetek_EVE210CMD_BUTTONEssssstPKcz             
+0000e541  __TI_auto_init_nobinit                                 
+0000e5a0  _ZN14Bridgetek_EVE28CMD_TEXTEssstPKcz                  
+0000e5f9  __TI_ltoa                                              
+0000e6a0  __aeabi_idiv                                           
+0000e6a0  __aeabi_idivmod                                        
+0000e745  atoi                                                   
+0000e794  _ZN14Bridgetek_EVE212CMD_PROGRESSEssssttt              
+0000e821  sprintf                                                
+0000e860  _ZN14Bridgetek_EVE210CMD_NUMBEREsssti                  
+0000e89d  strstr                                                 
+0000e8d4  _ZN14Bridgetek_EVE215CLEAR_COLOR_RGBEhhh               
+0000e8fc  _ZN14Bridgetek_EVE25CLEAREhhh                          
+0000e924  _ZN14Bridgetek_EVE29COLOR_RGBEhhh                      
+0000e94d  memccpy                                                
+0000e974  _ZN14Bridgetek_EVE213LIB_MemWrite8Ejh                  
+0000e994  _ZN14Bridgetek_EVE214LIB_MemWrite32Ejj                 
+0000e9b4  _ZN14Bridgetek_EVE28VERTEX2FEss                        
+0000e9d5  copysign                                               
+0000e9d5  copysignl                                              
+0000e9f3  __TI_zero_init_nomemset                                
+0000ea28  _ZN14Bridgetek_EVE212LIB_MemRead8Ej                    
+0000ea40  _ZN14Bridgetek_EVE213CMD_CALIBRATEEj                   
+0000ea58  _ZN14Bridgetek_EVE213LIB_MemRead16Ej                   
+0000ea70  _ZN14Bridgetek_EVE213LIB_MemRead32Ej                   
+0000ea88  _ZN14Bridgetek_EVE23TAGEh                              
+0000eaa0  _ZN14Bridgetek_EVE25BEGINEh                            
+0000eab9  strchr                                                 
+0000eacf  strlen                                                 
+0000eae5  wcslen                                                 
+0000eaf8  _ZN14Bridgetek_EVE211CMD_DLSTARTEv                     
+0000eb08  _ZN14Bridgetek_EVE216LIB_EndCoProListEv                
+0000eb18  _ZN14Bridgetek_EVE218LIB_BeginCoProListEv              
+0000eb28  _ZN14Bridgetek_EVE219LIB_AwaitCoProEmptyEv             
+0000eb38  _ZN14Bridgetek_EVE23ENDEv                              
+0000eb48  _ZN14Bridgetek_EVE24InitEv                             
+0000eb58  _ZN14Bridgetek_EVE27DISPLAYEv                          
+0000eb68  _ZN14Bridgetek_EVE28CMD_SWAPEv                         
+0000eb79  __TI_decompress_none                                   
+0000eb91  __aeabi_errno_addr                                     
+0000eb99  C$$EXIT                                                
+0000eb99  abort                                                  
+0000eb9c  phantomInterrupt                                       
+0000eba0  handlePLLLockFail                                      
+0000eda4  _ctypes_                                               
+0000ef10  SHT$$INIT_ARRAY$$Base                                  
+0000ef14  SHT$$INIT_ARRAY$$Limit                                 
+0000ef18  __TI_Handler_Table_Base                                
+0000ef24  __TI_Handler_Table_Limit                               
+0000ef38  __TI_CINIT_Base                                        
+0000ef48  __TI_CINIT_Limit                                       
+08001500  __start___llvm_prf_cnts                                
+08001500  __stop___llvm_prf_cnts                                 
+08001578  eve                                                    
+080015e4  data                                                   
+08001630  EVE_DISP_CSPREAD                                       
+08001634  EVE_DISP_DITHER                                        
+08001638  EVE_DISP_HCYCLE                                        
+0800163c  EVE_DISP_HEIGHT                                        
+08001640  EVE_DISP_HOFFSET                                       
+08001644  EVE_DISP_HSYNC0                                        
+08001648  EVE_DISP_HSYNC1                                        
+0800164c  EVE_DISP_PCLK                                          
+08001650  EVE_DISP_PCLKPOL                                       
+08001654  EVE_DISP_PCLK_FREQ                                     
+08001658  EVE_DISP_SWIZZLE                                       
+0800165c  EVE_DISP_VCYCLE                                        
+08001660  EVE_DISP_VOFFSET                                       
+08001664  EVE_DISP_VSYNC0                                        
+08001668  EVE_DISP_VSYNC1                                        
+0800166c  EVE_DISP_WIDTH                                         
+08001670  EVE_TOUCH_ADDR                                         
+0800167e  current_page                                           
+08001680  errno                                                  
+ffffffff  __TI_pprof_out_hndl                                    
+ffffffff  __TI_prof_data_size                                    
+ffffffff  __TI_prof_data_start                                   
+ffffffff  __binit__                                              
+ffffffff  __c_args__                                             
+ffffffff  binit                                                  
+UNDEFED   _system_post_cinit                                     
+
+[491 symbols]
