@@ -2,12 +2,15 @@
 #include "ui_rpm_bar.h"
 #include "ui_buttons.h"
 #include "pages.h"
-#include "Bridgetek_EVE2.h"
 #include "ui_touch.h"
 #include <stdio.h>
 
 #include <math.h>
 #include <stdio.h>
+
+
+dashboard_data_t dashboard_data;
+
 
 char *dtostrf(double val, signed char width, unsigned char prec, char *sout)
 {
@@ -113,7 +116,95 @@ void draw_status(Bridgetek_EVE2 &eve, dashboard_data_t *d)
     eve.COLOR_RGB(255,255,255); // reset color
 }
 
-void dashboard_draw(Bridgetek_EVE2 &eve, dashboard_data_t *d)
+
+/**************************************************************************************
+ * Functions to initialize and update the dashboard data, and to draw the dashboard   
+ * on the EVE display. These functions can be called from the main loop or from a timer  
+ * interrupt to keep the dashboard updated with the latest data from the ECU.         
+ * Make sure to call update_dashboard_data() after updating the main data fields 
+ * to push the latest values into the graph buffers, and then call update_dashboard_draw() 
+ * to refresh the display.
+ **************************************************************************************
+ */
+
+void init_dashboard(dashboard_data_t *data)
+{
+    data->rpm = 0;
+
+    data->motor1_voltage = 0;
+    data->motor1_current = 0;
+    data->motor1_temp = 0;
+
+    data->motor2_voltage = 0;
+    data->motor2_current = 0;
+    data->motor2_temp = 0;
+
+    data->tps = 0;
+    data->brake_front = 0;
+    data->brake_rear = 0;
+
+    data->battery_voltage = 0;
+    data->battery_current = 0;
+    data->steering_angle = 0;
+    data->wheel_speed_fl = 0;
+    data->wheel_speed_fr = 0;
+    data->wheel_speed_rl = 0;
+    data->wheel_speed_rr = 0;
+
+    data->traction_on = 0;
+    data->drive_enabled = 0;
+
+    data->mode = NORMAL; // NORMAL
+    data->motor1_fault = NO_FAULT;
+    data->motor2_fault = NO_FAULT;
+    data->drive_state = OFF;
+
+    // Initialize graph buffers to zero
+    for(int i=0; i<GRAPH_BUFFER_SIZE; i++) {
+        data->motor1_voltage_history[i] = 0;
+        data->motor1_current_history[i] = 0;
+        data->motor1_temp_history[i] = 0;
+        data->battery_voltage_history[i] = 0;
+        data->motor2_voltage_history[i] = 0;
+        data->motor2_current_history[i] = 0;
+        data->motor2_temp_history[i] = 0;
+        data->battery_current_history[i] = 0;
+        data->steering_angle_history[i] = 0;
+        data->tps_history[i] = 0;
+        data->brake_front_history[i] = 0;
+        data->brake_rear_history[i] = 0;
+        data->wheel_speed_fl_history[i] = 0;
+        data->wheel_speed_fr_history[i] = 0;
+        data->wheel_speed_rl_history[i] = 0;
+        data->wheel_speed_rr_history[i] = 0;
+    }
+}
+
+void update_dashboard_data(dashboard_data_t *data)
+{
+    // This function can be called after updating the main data fields to push the latest values into the graph buffers
+    data->motor1_voltage_history[data->graph_buffer_index] = data->motor1_voltage;
+    data->motor1_current_history[data->graph_buffer_index] = data->motor1_current;
+    data->motor1_temp_history[data->graph_buffer_index] = data->motor1_temp;
+    data->battery_voltage_history[data->graph_buffer_index] = data->battery_voltage;
+    data->motor2_voltage_history[data->graph_buffer_index] = data->motor2_voltage;
+    data->motor2_current_history[data->graph_buffer_index] = data->motor2_current;
+    data->motor2_temp_history[data->graph_buffer_index] = data->motor2_temp;
+    data->battery_current_history[data->graph_buffer_index] = data->battery_current;
+    data->steering_angle_history[data->graph_buffer_index] = data->steering_angle;
+    data->tps_history[data->graph_buffer_index] = data->tps;
+    data->brake_front_history[data->graph_buffer_index] = data->brake_front;
+    data->brake_rear_history[data->graph_buffer_index] = data->brake_rear;
+    data->wheel_speed_fl_history[data->graph_buffer_index] = data->wheel_speed_fl;
+    data->wheel_speed_fr_history[data->graph_buffer_index] = data->wheel_speed_fr;
+    data->wheel_speed_rl_history[data->graph_buffer_index] = data->wheel_speed_rl;
+    data->wheel_speed_rr_history[data->graph_buffer_index] = data->wheel_speed_rr;
+
+    // Increment buffer index
+    data->graph_buffer_index = (data->graph_buffer_index + 1) % GRAPH_BUFFER_SIZE;
+}
+
+void update_dashboard_draw(Bridgetek_EVE2 &eve, dashboard_data_t *d)
 {
     eve.LIB_BeginCoProList();
 
@@ -258,7 +349,7 @@ void dashboard_draw(Bridgetek_EVE2 &eve, dashboard_data_t *d)
         }
         eve.END();
 
-        // línea del gráfico (histórica)
+        // lï¿½nea del grï¿½fico (histï¿½rica)
         eve.COLOR_RGB(0,255,0);
         eve.BEGIN(eve.BEGIN_LINE_STRIP);
 
@@ -301,7 +392,7 @@ void dashboard_draw(Bridgetek_EVE2 &eve, dashboard_data_t *d)
                 if(val < 0) val = 0;
                 if(val > max_val) val = max_val;
 
-                // FIX división entera
+                // FIX divisiï¿½n entera
                 int x = graphX + (i * graphW) / (GRAPH_BUFFER_SIZE - 1);
 
                 float norm = val / max_val;

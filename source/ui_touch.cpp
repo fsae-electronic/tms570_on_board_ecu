@@ -173,7 +173,7 @@ void ui_handle_touch(Bridgetek_EVE2 &eve, dashboard_data_t *data)
 
         if (tracking_swipe) {
             int16_t dx = (int16_t)last_x - (int16_t)swipe_x0;
-            const int16_t threshold = 40;
+            const int16_t threshold = 50;
             if (dx > threshold) {
                 // swipe hacia la derecha -> siguiente página
                 int np = (int)current_page + 1;

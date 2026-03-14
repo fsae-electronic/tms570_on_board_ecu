@@ -2,7 +2,7 @@
 
 source/ui_buttons.obj: ../source/ui_buttons.cpp
 source/ui_buttons.obj: ../source/ui_buttons.h
-source/ui_buttons.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.h
+source/ui_buttons.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp
 source/ui_buttons.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h
 source/ui_buttons.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config
 source/ui_buttons.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config_site
@@ -24,13 +24,13 @@ source/ui_buttons.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_dr
 source/ui_buttons.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/FT81x.h
 source/ui_buttons.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/HAL.h
 source/ui_buttons.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/MCU.h
-source/ui_buttons.obj: ../source/data_model.h
+source/ui_buttons.obj: ../source/dashboard.h
 
 ../source/ui_buttons.cpp:
 
 ../source/ui_buttons.h:
 
-C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.h:
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp:
 
 C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h:
 
@@ -74,5 +74,5 @@ C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/HAL.h:
 
 C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/MCU.h:
 
-../source/data_model.h:
+../source/dashboard.h:
 

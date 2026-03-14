@@ -2,7 +2,7 @@
 
 source/ui_touch.obj: ../source/ui_touch.cpp
 source/ui_touch.obj: ../source/ui_touch.h
-source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp
 source/ui_touch.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h
 source/ui_touch.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config
 source/ui_touch.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config_site
@@ -24,14 +24,14 @@ source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driv
 source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/FT81x.h
 source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/HAL.h
 source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/MCU.h
-source/ui_touch.obj: ../source/data_model.h
+source/ui_touch.obj: ../source/dashboard.h
 source/ui_touch.obj: ../source/pages.h
 
 ../source/ui_touch.cpp:
 
 ../source/ui_touch.h:
 
-C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.h:
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp:
 
 C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h:
 
@@ -75,7 +75,7 @@ C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/HAL.h:
 
 C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/MCU.h:
 
-../source/data_model.h:
+../source/dashboard.h:
 
 ../source/pages.h:
 

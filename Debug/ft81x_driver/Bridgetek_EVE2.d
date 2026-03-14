@@ -1,7 +1,7 @@
 # FIXED
 
 ft81x_driver/Bridgetek_EVE2.obj: ../ft81x_driver/Bridgetek_EVE2.cpp
-ft81x_driver/Bridgetek_EVE2.obj: ../ft81x_driver/Bridgetek_EVE2.h
+ft81x_driver/Bridgetek_EVE2.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp
 ft81x_driver/Bridgetek_EVE2.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h
 ft81x_driver/Bridgetek_EVE2.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config
 ft81x_driver/Bridgetek_EVE2.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config_site
@@ -26,7 +26,7 @@ ft81x_driver/Bridgetek_EVE2.obj: C:/Users/agust/workspace_v12/tms570_on_board_ec
 
 ../ft81x_driver/Bridgetek_EVE2.cpp:
 
-../ft81x_driver/Bridgetek_EVE2.h:
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp:
 
 C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h:
 

@@ -1,8 +1,8 @@
 #ifndef UI_TOUCH_H
 #define UI_TOUCH_H
 
-#include "Bridgetek_EVE2.h"
-#include "data_model.h"
+#include "Bridgetek_EVE2.hpp"
+#include "dashboard.h"
 
 int eve_calibrate(Bridgetek_EVE2 &eve);
 int eve_read_tag(Bridgetek_EVE2 &eve, uint8_t *key);

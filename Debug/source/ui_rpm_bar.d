@@ -2,7 +2,7 @@
 
 source/ui_rpm_bar.obj: ../source/ui_rpm_bar.cpp
 source/ui_rpm_bar.obj: ../source/ui_rpm_bar.h
-source/ui_rpm_bar.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.h
+source/ui_rpm_bar.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp
 source/ui_rpm_bar.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h
 source/ui_rpm_bar.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config
 source/ui_rpm_bar.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config_site
@@ -29,7 +29,7 @@ source/ui_rpm_bar.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_dr
 
 ../source/ui_rpm_bar.h:
 
-C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.h:
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp:
 
 C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h:
 

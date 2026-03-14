@@ -1,7 +1,7 @@
 # FIXED
 
 source/sys_main.obj: ../source/sys_main.cpp
-source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.h
+source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp
 source/sys_main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h
 source/sys_main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config
 source/sys_main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__config_site
@@ -24,12 +24,22 @@ source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driv
 source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/HAL.h
 source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/MCU.h
 source/sys_main.obj: ../source/dashboard.h
-source/sys_main.obj: ../source/data_model.h
 source/sys_main.obj: ../source/ui_touch.h
+source/sys_main.obj: ../source/data.h
+source/sys_main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdbool.h
+source/sys_main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdbool.h
+source/sys_main.obj: ../source/test_main_ecu.hpp
+source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/can.h
+source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/reg_can.h
+source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/sys_common.h
+source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/hal_stdtypes.h
+source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/sys_core.h
+source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/rti.h
+source/sys_main.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/reg_rti.h
 
 ../source/sys_main.cpp:
 
-C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.h:
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/Bridgetek_EVE2.hpp:
 
 C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdint.h:
 
@@ -75,7 +85,27 @@ C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/MCU.h:
 
 ../source/dashboard.h:
 
-../source/data_model.h:
-
 ../source/ui_touch.h:
+
+../source/data.h:
+
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdbool.h:
+
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdbool.h:
+
+../source/test_main_ecu.hpp:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/can.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/reg_can.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/sys_common.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/hal_stdtypes.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/sys_core.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/rti.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/reg_rti.h:
 

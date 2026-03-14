@@ -38,7 +38,7 @@
  * ============================================================================
  */
 
-#include "Bridgetek_EVE2.h"
+#include <Bridgetek_EVE2.hpp>
 
 uint32_t EVE_DISP_WIDTH, EVE_DISP_HEIGHT;
 uint32_t EVE_DISP_HCYCLE, EVE_DISP_VCYCLE;
