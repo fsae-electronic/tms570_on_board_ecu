@@ -1,5 +1,77 @@
 #include "ui_touch.h"
 #include "pages.h"
+extern "C" {
+#include "ti_fee.h"
+}
+// EEPROM storage structure for touch calibration only
+struct EEPROMData {
+    union
+    {
+        uint8_t raw[28];
+        struct
+        {
+            uint32_t magic;
+            uint32_t touch_a;
+            uint32_t touch_b;
+            uint32_t touch_c;
+            uint32_t touch_d;
+            uint32_t touch_e;
+            uint32_t touch_f;
+        } values;
+    };
+};
+
+static const uint32_t EEPROM_MAGIC = 0xA5A5A5A5;
+
+bool loadCalibration(Bridgetek_EVE2 &eve) 
+{
+    EEPROMData e;
+
+    while(TI_Fee_GetStatus(0) != IDLE)
+    {
+        TI_Fee_MainFunction();
+    }
+    TI_Fee_ReadSync(1, 0, e.raw, sizeof(EEPROMData));
+
+    if (e.values.magic != EEPROM_MAGIC) 
+    {
+        return false;
+    }
+    eve.LIB_MemWrite32(eve.REG_TOUCH_TRANSFORM_A, e.values.touch_a);
+    eve.LIB_MemWrite32(eve.REG_TOUCH_TRANSFORM_B, e.values.touch_b);
+    eve.LIB_MemWrite32(eve.REG_TOUCH_TRANSFORM_C, e.values.touch_c);
+    eve.LIB_MemWrite32(eve.REG_TOUCH_TRANSFORM_D, e.values.touch_d);
+    eve.LIB_MemWrite32(eve.REG_TOUCH_TRANSFORM_E, e.values.touch_e);
+    eve.LIB_MemWrite32(eve.REG_TOUCH_TRANSFORM_F, e.values.touch_f);
+
+    return true;
+}
+
+void saveCalibration(Bridgetek_EVE2 &eve) 
+{
+    while(TI_Fee_GetStatus(0) != IDLE)
+    {
+        TI_Fee_MainFunction();
+    }
+        
+    EEPROMData e;
+    e.values.magic = EEPROM_MAGIC;
+    e.values.touch_a = eve.LIB_MemRead32(eve.REG_TOUCH_TRANSFORM_A);
+    e.values.touch_b = eve.LIB_MemRead32(eve.REG_TOUCH_TRANSFORM_B);
+    e.values.touch_c = eve.LIB_MemRead32(eve.REG_TOUCH_TRANSFORM_C);
+    e.values.touch_d = eve.LIB_MemRead32(eve.REG_TOUCH_TRANSFORM_D);
+    e.values.touch_e = eve.LIB_MemRead32(eve.REG_TOUCH_TRANSFORM_E);
+    e.values.touch_f = eve.LIB_MemRead32(eve.REG_TOUCH_TRANSFORM_F);
+    TI_Fee_WriteAsync(1, e.raw);
+    while(TI_Fee_GetStatus(0) != IDLE)
+    {
+        TI_Fee_MainFunction();
+    }
+
+}
+
+
+
 
 void delay (int ticks)
 {
@@ -164,7 +236,7 @@ void ui_handle_touch(Bridgetek_EVE2 &eve, dashboard_data_t *data)
                 case 46: break;
                 case 47: break;
                 case 48: break;
-                case 49: eve_calibrate(eve); break;
+                case 49: eve_calibrate(eve); saveCalibration(eve); break;
                 case 50: break;
                 case 51: break;
             }

@@ -1,4 +1,4 @@
-#include <Bridgetek_EVE2.hpp>
+#include "Bridgetek_EVE2.hpp"
 #include "dashboard.h"
 #include "ui_touch.h"
 #include "data.h"
@@ -8,6 +8,10 @@
 #include "sys_core.h"
 
 #include "rti.h"
+
+extern "C" {
+#include "ti_fee.h"
+}
 
 #define CLOCK_RTI_HZ 10000000 
 #define SCREEN_UPDATE_TICKS (CLOCK_RTI_HZ / 30) // 30Hz update rate for the screen
@@ -25,6 +29,12 @@ int main()
     display_data.Init();
 
     rtiInit();
+    TI_Fee_Init();
+    while(TI_Fee_GetStatus(0) != IDLE)
+    {
+        TI_Fee_MainFunction();
+    }
+
     
     //CLOCK RTI = 10Mhz
     // RTI Update rate for screen = 50ms (20Hz)
@@ -35,7 +45,14 @@ int main()
     rtiEnableNotification(rtiNOTIFICATION_COMPARE1);
 
 
-    eve_calibrate(display_data);
+        // try restoring previous touch + debug calibration from EEPROM
+    if (!loadCalibration(display_data)) {
+        // if not found, perform fresh touch calibration
+        eve_calibrate(display_data);
+        saveCalibration(display_data);
+    }
+    //eve_calibrate(display_data);
+    //saveCalibration(display_data);
 
 
 

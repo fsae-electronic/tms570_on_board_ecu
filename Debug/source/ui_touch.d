@@ -25,6 +25,28 @@ source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driv
 source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/HAL.h
 source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/MCU.h
 source/ui_touch.obj: ../source/dashboard.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/ti_fee.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/hal_stdtypes.h
+source/ui_touch.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdbool.h
+source/ui_touch.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdbool.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/fee_interface.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/ti_fee_cfg.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/ti_fee_types.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Device_header.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Device_TMS570LS12.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/F021.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Types.h
+source/ui_touch.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stddef.h
+source/ui_touch.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stddef.h
+source/ui_touch.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__nullptr
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/CGT.CCS.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Helpers.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Constants.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Registers.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Registers_FMC_BE.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/FapiFunctions.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Compatibility.h
+source/ui_touch.obj: C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Device_types.h
 source/ui_touch.obj: ../source/pages.h
 
 ../source/ui_touch.cpp:
@@ -76,6 +98,50 @@ C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/HAL.h:
 C:/Users/agust/workspace_v12/tms570_on_board_ecu/ft81x_driver/MCU.h:
 
 ../source/dashboard.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/ti_fee.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/hal_stdtypes.h:
+
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stdbool.h:
+
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdbool.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/fee_interface.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/ti_fee_cfg.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/ti_fee_types.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Device_header.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Device_TMS570LS12.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/F021.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Types.h:
+
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/stddef.h:
+
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stddef.h:
+
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/libcxx/__nullptr:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/CGT.CCS.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Helpers.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Constants.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Registers.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Registers_FMC_BE.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/FapiFunctions.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Compatibility.h:
+
+C:/Users/agust/workspace_v12/tms570_on_board_ecu/include/Device_types.h:
 
 ../source/pages.h:
 
