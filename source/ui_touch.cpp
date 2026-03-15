@@ -178,7 +178,9 @@ void ui_handle_touch(Bridgetek_EVE2 &eve, dashboard_data_t *data)
     static uint8_t last_key = 0;
     static bool tracking_swipe = false;
     static uint16_t swipe_x0 = 0;
+    static uint16_t swipe_y0 = 0;
     static uint16_t last_x = 0;
+    static uint16_t last_y = 0;
 
     uint8_t key;
     uint16_t tx, ty;
@@ -187,10 +189,15 @@ void ui_handle_touch(Bridgetek_EVE2 &eve, dashboard_data_t *data)
         // hay contacto; actualizar swipe y tag
         eve_get_xy(eve, &tx, &ty);
         last_x = tx;
+        last_y = ty;
 
         if (!tracking_swipe) {
             tracking_swipe = true;
             swipe_x0 = tx;
+            swipe_y0 = ty;
+
+            last_x = tx;
+            last_y = ty;
         }
 
         if (eve_read_tag(eve, &key)) {
@@ -198,18 +205,14 @@ void ui_handle_touch(Bridgetek_EVE2 &eve, dashboard_data_t *data)
         }
     } else {
         // toque liberado
+
         if (last_key != 0) {
             // acción de botón al soltar
             switch (last_key) {
-                case 1:
-                    data->traction_on = !data->traction_on;
-                    break;
-                case 2:
-                    data->mode = !data->mode;
-                    break;
-                case 3:
-                    data->drive_enabled = !data->drive_enabled;
-                    break;
+                case 1: data->traction_on = !data->traction_on; break;
+                case 2: data->mode = !data->mode; break;
+                case 3: data->drive_enabled = !data->drive_enabled; break;
+
                 case 10: current_page = PAGE_GRAPH; current_graph = GRAPH_M1_V; break;
                 case 11: current_page = PAGE_GRAPH; current_graph = GRAPH_M1_I; break;
                 case 12: current_page = PAGE_GRAPH; current_graph = GRAPH_M1_T; break;
@@ -226,61 +229,87 @@ void ui_handle_touch(Bridgetek_EVE2 &eve, dashboard_data_t *data)
                 case 23: current_page = PAGE_GRAPH; current_graph = GRAPH_FR_SPD; break;
                 case 24: current_page = PAGE_GRAPH; current_graph = GRAPH_RL_SPD; break;
                 case 25: current_page = PAGE_GRAPH; current_graph = GRAPH_RR_SPD; break;
+
                 case 30: current_page = PAGE_TELEMETRY; current_graph = GRAPH_NONE; break;
-                case 40: 
+
+                case 40:
                     if(data->cal_tps_0 == 0)
                     {
                         data->cal_tps_0 = 1;
                         cal_tps_0_timer = 50;
                     }
                     break;
-                case 41: 
+
+                case 41:
                     if(data->cal_tps_100 == 0)
                     {
                         data->cal_tps_100 = 1;
                         cal_tps_100_timer = 50;
                     }
                     break;
+
                 case 42: data->traction_on = !data->traction_on; break;
                 case 43: data->mode = !data->mode; break;
                 case 44: data->drive_enabled = !data->drive_enabled; break;
                 case 45: data->telemetry_enabled = !data->telemetry_enabled; break;
-                case 46: 
+
+                case 46:
                     if(data->cal_left_steer == 0)
                     {
                         data->cal_left_steer = 1;
                         cal_left_steer_timer = 50;
                     }
                     break;
-                case 47: 
+
+                case 47:
                     if(data->cal_right_steer == 0)
                     {
                         data->cal_right_steer = 1;
                         cal_right_steer_timer = 50;
                     }
                     break;
+
                 case 48: break;
-                case 49: data->cal_screen = 1; eve_calibrate(eve); saveCalibration(eve); data->cal_screen = 0; break;
+
+                case 49:
+                    data->cal_screen = 1;
+                    eve_calibrate(eve);
+                    saveCalibration(eve);
+                    data->cal_screen = 0;
+                    break;
+
                 case 50: break;
                 case 51: break;
             }
+
             last_key = 0;
         }
 
         if (tracking_swipe) {
+
             int16_t dx = (int16_t)last_x - (int16_t)swipe_x0;
-            const int16_t threshold = 50;
-            if (dx > threshold) {
-                // swipe hacia la derecha -> siguiente página
-                int np = (int)current_page + 1;
-                if (np > PAGE_DEBUG) np = PAGE_RACE;
-                current_page = (ui_page_t)np;
-            } else if (dx < -threshold) {
-                // swipe hacia la izquierda -> página anterior
-                int np = (int)current_page - 1;
-                if (np < PAGE_RACE) np = PAGE_DEBUG;
-                current_page = (ui_page_t)np;
+            int16_t dy = (int16_t)last_y - (int16_t)swipe_y0;
+
+            const int16_t threshold = 60;     // distancia mínima swipe
+            const int16_t max_y_move = 40;    // evita swipe diagonal
+
+            // solo swipe si NO se presionó botón
+            if (last_key == 0 && abs(dx) > threshold && abs(dy) < max_y_move) {
+
+                if (dx > 0) {
+                    // swipe derecha
+                    int np = (int)current_page + 1;
+                    if (np > PAGE_DEBUG) np = PAGE_RACE;
+                    current_page = (ui_page_t)np;
+                }
+                else {
+                    // swipe izquierda
+                    int np = (int)current_page - 1;
+                    if (np < PAGE_RACE) np = PAGE_DEBUG;
+                    current_page = (ui_page_t)np;
+                }
             }
+
             tracking_swipe = false;
         }
     }
