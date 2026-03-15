@@ -11,6 +11,12 @@
 
 dashboard_data_t dashboard_data;
 
+int cal_tps_0_timer = 0;
+int cal_tps_100_timer = 0;
+int cal_left_steer_timer = 0;
+int cal_right_steer_timer = 0;
+
+
 
 char *dtostrf(double val, signed char width, unsigned char prec, char *sout)
 {
@@ -158,6 +164,13 @@ void init_dashboard(dashboard_data_t *data)
     data->motor1_fault = NO_FAULT;
     data->motor2_fault = NO_FAULT;
     data->drive_state = OFF;
+
+    data->cal_tps_0 = 0;
+    data->cal_tps_100 = 0;
+    data->cal_left_steer = 0;
+    data->cal_right_steer = 0;
+
+    data->cal_screen = 0;
 
     // Initialize graph buffers to zero
     for(int i=0; i<GRAPH_BUFFER_SIZE; i++) {
@@ -453,41 +466,161 @@ void update_dashboard_draw(Bridgetek_EVE2 &eve, dashboard_data_t *d)
         // título
         eve.CMD_TEXT(240, 20, 22, Bridgetek_EVE2::OPT_CENTER, "DEBUG MENU");
 
-        // uint8_t tag = 0;
-        // eve_read_tag(eve, &tag);
 
-        // uint16_t opt0 = 0;
-        // if(tag == 40) opt0 = EVE_OPT_FLAT;
-        // if(tag == 41) opt0 = EVE_OPT_FLAT;
+        static int counter = 0;
         
 
-        // fila 1: calibraciones TPS
+// fila 1: calibraciones TPS
         eve.TAG(40);
-        eve.CMD_BUTTON(20, 40, 120, 40, 26, 0, "Cal TPS 0%");
-        eve.TAG(41);
-        eve.CMD_BUTTON(170, 40, 120, 40, 26, 0, "Cal TPS 100%");
-        eve.TAG(42);
-        eve.CMD_BUTTON(320, 40, 120, 40, 26, 0, d->traction_on ? "Traction ON" : "Traction OFF");
 
+        if(d->cal_tps_0)
+        {
+            eve.COLOR_RGB(0,0,255);
+            eve.CMD_BUTTON(20, 40, 120, 40, 26, EVE_OPT_FLAT, "Send");
+
+            if(cal_tps_0_timer > 0)
+            {
+                cal_tps_0_timer--;
+            }
+            else
+            {
+                d->cal_tps_0 = 0;
+            }
+        }
+        else
+        {
+            eve.COLOR_RGB(255,255,255);
+            eve.CMD_BUTTON(20, 40, 120, 40, 26, 0, "Cal TPS 0%");
+        }
+
+        eve.TAG(41);
+        if(d->cal_tps_100)
+        {
+            eve.COLOR_RGB(0,0,255);
+            eve.CMD_BUTTON(170, 40, 120, 40, 26, EVE_OPT_FLAT, "Send");
+
+            if(cal_tps_100_timer > 0)
+            {
+                cal_tps_100_timer--;
+            }
+            else
+            {
+                d->cal_tps_100 = 0;
+            }
+        }
+        else
+        {
+            eve.COLOR_RGB(255,255,255);
+            eve.CMD_BUTTON(170, 40, 120, 40, 26, 0, "Cal TPS 100%");
+        }
+        
+        
         // fila 2: modos
-        eve.TAG(43);
-        eve.CMD_BUTTON(20, 100, 120, 40, 26, 0, d->mode ? "Mode: RACE" : "Mode: NORMAL");
-        eve.TAG(44);
-        eve.CMD_BUTTON(170, 100, 120, 40, 26, 0, d->drive_enabled ? "Drive: ON" : "Drive: OFF");
-        eve.TAG(45);
-        eve.CMD_BUTTON(320, 100, 120, 40, 26, 0, d->telemetry_enabled ? "Telemetry: ON" : "Telemetry: OFF");
+        if (d->traction_on)
+        {
+            eve.TAG(42);
+            eve.COLOR_RGB(0,255,0);
+            eve.CMD_BUTTON(320, 40, 120, 40, 26, EVE_OPT_FLAT, "Traction: ON");
+        }
+        else
+        {
+            eve.TAG(42);
+            eve.COLOR_RGB(255,0,0);
+            eve.CMD_BUTTON(320, 40, 120, 40, 26, 0, "Traction: OFF");
+        }
+
+        if(d->mode == RACE)
+        {
+            eve.TAG(43);
+            eve.COLOR_RGB(255,0,0);
+            eve.CMD_BUTTON(20, 100, 120, 40, 26, EVE_OPT_FLAT, "Mode: RACE");
+        }else
+        {             
+            eve.TAG(43);
+            eve.COLOR_RGB(0,255,0);
+            eve.CMD_BUTTON(20, 100, 120, 40, 26, 0, "Mode: NORMAL");
+        }
+        
+        if(d->drive_enabled)
+        {
+            eve.TAG(44);
+            eve.COLOR_RGB(0,255,0);
+            eve.CMD_BUTTON(170, 100, 120, 40, 26, EVE_OPT_FLAT, "Drive: ON");
+        }else
+        {
+            eve.TAG(44);
+            eve.COLOR_RGB(255,0,0);
+            eve.CMD_BUTTON(170, 100, 120, 40, 26, 0, "Drive: OFF");
+        }
+
+        if(d->telemetry_enabled)
+        {
+            eve.TAG(45);
+            eve.COLOR_RGB(0,255,0);
+            eve.CMD_BUTTON(320, 100, 120, 40, 26, EVE_OPT_FLAT, "Telemetry: ON");
+        }else
+        {
+            eve.TAG(45);
+            eve.COLOR_RGB(255,0,0);
+            eve.CMD_BUTTON(320, 100, 120, 40, 26, 0, "Telemetry: OFF");
+        }
 
         // fila 3: steering
         eve.TAG(46);
-        eve.CMD_BUTTON(20, 160, 120, 40, 26, 0, "Cal LEFT");
+        if (d->cal_left_steer)
+        {
+            eve.COLOR_RGB(0,0,255);
+            eve.CMD_BUTTON(20, 160, 120, 40, 26, EVE_OPT_FLAT, "Send");
+            if(cal_left_steer_timer > 0)
+            {
+                cal_left_steer_timer--;
+            }
+            else
+            {
+                d->cal_left_steer = 0;
+            }
+        }else
+        {
+            eve.COLOR_RGB(255,255,255);
+            eve.CMD_BUTTON(20, 160, 120, 40, 26, 0, "Cal LEFT");
+        }
+
+
         eve.TAG(47);
-        eve.CMD_BUTTON(170, 160, 120, 40, 26, 0, "Cal RIGHT");
-        eve.TAG(48);
-        eve.CMD_BUTTON(320, 160, 120, 40, 26, 0, "Reset Cal");
+        if(d->cal_right_steer)
+        {
+            eve.COLOR_RGB(0,0,255);
+            eve.CMD_BUTTON(170, 160, 120, 40, 26, EVE_OPT_FLAT, "Send");
+            if(cal_right_steer_timer > 0)
+            {
+                cal_right_steer_timer--;
+            }
+            else
+            {
+                d->cal_right_steer = 0;
+            }
+        }else
+        {
+            eve.COLOR_RGB(255,255,255);
+            eve.CMD_BUTTON(170, 160, 120, 40, 26, 0, "Cal RIGHT");
+        }
+        
+
+
 
         // fila 4: calibrate screen
-        eve.TAG(49);
-        eve.CMD_BUTTON(20, 220, 120, 40, 26, 0, "Cal Screen");
+        if(d->cal_screen)
+        {
+            eve.TAG(49);
+            eve.COLOR_RGB(0,0,255);
+            eve.CMD_BUTTON(20, 220, 120, 40, 26, EVE_OPT_FLAT, "Calibrating...");
+        }else
+        {
+            eve.TAG(49);
+            eve.COLOR_RGB(255,255,255);
+            eve.CMD_BUTTON(20, 220, 120, 40, 26, 0, "Cal Screen");
+        }
+
         // eve.TAG(50);
         // eve.CMD_BUTTON(170, 220, 120, 40, 26, 0, "");
         // eve.TAG(51);

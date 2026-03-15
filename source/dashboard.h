@@ -65,6 +65,14 @@ typedef struct
     uint8_t telemetry_enabled;
     uint8_t mode;
 
+    uint8_t cal_tps_0;
+    uint8_t cal_tps_100;
+    uint8_t cal_left_steer;
+    uint8_t cal_right_steer;
+
+    uint8_t cal_screen;
+
+
 
 
     // historical data for graphs (circular buffer)
@@ -90,6 +98,11 @@ typedef struct
 } dashboard_data_t;
 
 extern dashboard_data_t dashboard_data;
+extern int cal_tps_0_timer;
+extern int cal_tps_100_timer;
+extern int cal_left_steer_timer;
+extern int cal_right_steer_timer;   
+
 
 void init_dashboard(dashboard_data_t *data);
 void update_dashboard_data(dashboard_data_t *data);

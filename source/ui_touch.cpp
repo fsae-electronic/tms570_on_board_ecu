@@ -227,16 +227,40 @@ void ui_handle_touch(Bridgetek_EVE2 &eve, dashboard_data_t *data)
                 case 24: current_page = PAGE_GRAPH; current_graph = GRAPH_RL_SPD; break;
                 case 25: current_page = PAGE_GRAPH; current_graph = GRAPH_RR_SPD; break;
                 case 30: current_page = PAGE_TELEMETRY; current_graph = GRAPH_NONE; break;
-                case 40: break;
-                case 41: break;
+                case 40: 
+                    if(data->cal_tps_0 == 0)
+                    {
+                        data->cal_tps_0 = 1;
+                        cal_tps_0_timer = 50;
+                    }
+                    break;
+                case 41: 
+                    if(data->cal_tps_100 == 0)
+                    {
+                        data->cal_tps_100 = 1;
+                        cal_tps_100_timer = 50;
+                    }
+                    break;
                 case 42: data->traction_on = !data->traction_on; break;
                 case 43: data->mode = !data->mode; break;
                 case 44: data->drive_enabled = !data->drive_enabled; break;
                 case 45: data->telemetry_enabled = !data->telemetry_enabled; break;
-                case 46: break;
-                case 47: break;
+                case 46: 
+                    if(data->cal_left_steer == 0)
+                    {
+                        data->cal_left_steer = 1;
+                        cal_left_steer_timer = 50;
+                    }
+                    break;
+                case 47: 
+                    if(data->cal_right_steer == 0)
+                    {
+                        data->cal_right_steer = 1;
+                        cal_right_steer_timer = 50;
+                    }
+                    break;
                 case 48: break;
-                case 49: eve_calibrate(eve); saveCalibration(eve); break;
+                case 49: data->cal_screen = 1; eve_calibrate(eve); saveCalibration(eve); data->cal_screen = 0; break;
                 case 50: break;
                 case 51: break;
             }
